@@ -150,18 +150,22 @@ class Base
   {
     return $this->get_list("select id,gender as name from tbl_gender");
   }
+  public function get_form()
+  {
+    return $this->get_list("select id,upper(name) as name from tbl_form");
+  }
 
   public function get_province()
   {
-    return $this->get_list("select * from tbl_province order by name asc");
+    return $this->get_list("select id,upper(name) as name from tbl_province order by name asc");
   }
   public function get_city($id = '1401')
   {
-    return $this->get_list("select * from tbl_city where province_id = '$id' order by name asc");
+    return $this->get_list("select id,upper(name) as name from tbl_city where province_id = '$id' order by name asc");
   }
   public function get_barangay($id = '0128')
   {
-    return $this->get_list("select * from tbl_barangay where city_id = '$id' order by name asc");
+    return $this->get_list("select id,upper(name) as name from tbl_barangay where city_id = '$id' order by name asc");
   }
 
   public function get_dropdown()

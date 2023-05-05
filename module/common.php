@@ -28,7 +28,9 @@ if (!function_exists('get_access')) {
           'dashboard',
           'admin_customer_list',
           'admin_customer_create',
-          'admin_customer_edit'
+          'admin_customer_edit',
+          'admin_form_create',
+          'admin_form_edit',
         );
 
 
@@ -50,6 +52,10 @@ if (!function_exists('page_url')) {
         return '../layout/admin-page/content/customer/create.php';
       case 'admin_customer_edit':
         return '../layout/admin-page/content/customer/edit.php';
+      case 'admin_form_create':
+        return '../layout/admin-page/content/form/create.php';
+      case 'admin_form_edit':
+        return '../layout/admin-page/content/form/edit.php';
 
 
       case 'denied':
@@ -98,6 +104,7 @@ if (!function_exists('def_response')) {
   function def_response()
   {
     $result = new stdClass();
+    $result->reset = true;
     $result->status = false;
     $result->result = error_msg();
     $result->items = '';

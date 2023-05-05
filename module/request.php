@@ -21,6 +21,9 @@ switch ($form) {
   case 'create_customer':
     $result = $customer->create();
     break;
+  case 'edit_customer':
+    $result = $customer->update();
+    break;
   case 'update_cart_count':
     $result = $shop->get_cart_count();
     break;

@@ -25,6 +25,8 @@ $(document).ready(function() {
       $("#content").load(base_url + 'module/page.php?page=' + page);
     }
   }
+  
+
 });
 
 $(document).on("click", '.a-view', function () {  
@@ -69,7 +71,7 @@ $(document).on("submit", 'form', function (e) {
     success: function (res) {
       var result = JSON.parse(res);
       $('.result').html(result.result);
-      if (result.status == true) {
+      if (result.status == true && result.reset == true) {
         $(form_raw).trigger('reset');
       }
       if (result.status == true) {

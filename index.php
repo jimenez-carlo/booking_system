@@ -11,7 +11,6 @@ if (isset($_SESSION['is_logged_in'])) {
   // Customer
   if ($_SESSION['user']->access_id == 1) {
     $request = new main($conn);
-    $cart = $request->get_one("select count(*) as items from tbl_transactions where status_id = 1 and is_deleted = 0 and buyer_id = " . $_SESSION['user']->id);
     include('layout/admin-page/header.php');
     include('layout/admin-page/body.php');
     include('layout/admin-page/footer.php');

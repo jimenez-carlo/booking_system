@@ -35,10 +35,44 @@ class Customer extends Base
 
     $created_by = $_SESSION['user']->id;
     $id = $this->insert_get_id("insert into tbl_customers (email,created_by) values ('$email', '$created_by')");
-    $this->query("insert into tbl_customers_info (id,first_name,middle_name,last_name,contact_no,gender_id, province,city,barangay) 
-          values('$id','$first_name','$middle_name','$last_name','$contact_no','$gender', '$province','$city','$barangay')");
+    $this->query("insert into tbl_customers_info (id,first_name,middle_name,last_name,contact_no,gender_id, province,city,barangay, birth_date) 
+          values('$id','$first_name','$middle_name','$last_name','$contact_no','$gender', '$province','$city','$barangay','$birth_date')");
     $result->status = true;
     $result->result = success_msg("New Customer Created!");
+
+    return $result;
+  }
+
+  public function update()
+  {
+    extract($this->escape_data($_POST));
+
+    $result = def_response();
+    $blank = 0;
+    $errors = array();
+    $msg = '';
+
+    $required_fields = array('first_name', 'last_name', 'birth_date', 'gender', 'province', 'city', 'barangay', 'contact_no', 'email');
+
+    foreach ($required_fields as $res) {
+      if (empty(${$res})) {
+        $errors[] = $res;
+        $blank++;
+      }
+    }
+
+    if (!empty($errors)) {
+      $msg .= "Please Fill Blank Fields!";
+      $result->result = $this->response_error($msg);
+      $result->items = implode(',', $errors);
+      return $result;
+    }
+
+    $this->query("update tbl_customers set email = '$email' where id = $id");
+    $this->query("update tbl_customers_info set first_name = '$first_name', middle_name =  '$middle_name', last_name = '$last_name', birth_date = '$birth_date', gender_id = '$gender', province = '$province',city='$city',barangay = '$barangay', contact_no = '$contact_no'  where id = $id");
+    $result->status = true;
+    $result->reset = false;
+    $result->result = success_msg("Updated Customer ID#$id!");
 
     return $result;
   }

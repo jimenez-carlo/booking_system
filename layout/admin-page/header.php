@@ -30,6 +30,7 @@
 
   <!-- Morris Charts CSS -->
   <link href="css/morris.css" rel="stylesheet">
+  <link href="css/select2.css" rel="stylesheet">
 
   <!-- Custom Fonts -->
   <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
