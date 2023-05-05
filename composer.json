@@ -1,0 +1,5 @@
+{
+    "require": {
+        "secondtruth/startmin": "^1.1"
+    }
+}

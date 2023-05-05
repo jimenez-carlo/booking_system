@@ -1,0 +1,51 @@
+{
+    "packages": [
+        {
+            "name": "secondtruth/startmin",
+            "version": "v1.1",
+            "version_normalized": "1.1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/secondtruth/startmin.git",
+                "reference": "a2dd9d5623fb16a838cee4c245cdf36d70c98002"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/secondtruth/startmin/zipball/a2dd9d5623fb16a838cee4c245cdf36d70c98002",
+                "reference": "a2dd9d5623fb16a838cee4c245cdf36d70c98002",
+                "shasum": ""
+            },
+            "time": "2018-12-11T18:14:53+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Neff",
+                    "email": "christian.neff@gmail.com",
+                    "homepage": "http://www.secondtruth.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Admin dashboard template for Bootstrap",
+            "homepage": "http://www.secondtruth.de",
+            "keywords": [
+                "admin",
+                "backend",
+                "template",
+                "theme",
+                "web"
+            ],
+            "support": {
+                "issues": "https://github.com/secondtruth/startmin/issues",
+                "source": "https://github.com/secondtruth/startmin/tree/master"
+            },
+            "install-path": "../secondtruth/startmin"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
