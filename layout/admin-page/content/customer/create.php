@@ -36,8 +36,12 @@
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label><span style="color:red">*</span>Birth Date</label>
-                <input class="form-control" type="date" name="birth_date" id="birth_date" placeholder="Birth Date">
+                <label><span style="color:red">*</span>Company</label>
+                <select class="form-control" name="company" id="company">
+                  <?php foreach ($company as $res) { ?>
+                    <option value="<?= $res['id'] ?>"><?= $res['company'] ?></option>
+                  <?php } ?>
+                </select>
               </div>
             </div>
           </div>
@@ -88,6 +92,12 @@
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
+                <label><span style="color:red">*</span>Birth Date</label>
+                <input class="form-control" type="date" name="birth_date" id="birth_date" placeholder="Birth Date">
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="form-group">
                 <label><span style="color:red">*</span>Contact No</label>
                 <input class="form-control" type="number" name="contact_no" id="contact_no" placeholder="Contact No#">
               </div>
@@ -111,6 +121,9 @@
 </div>
 
 <script>
+  $('select[name="province"]').off('change');
+  $('select[name="city"]').off('change');
+
   $('select[name="province"]').on('change', function() {
     city();
     barangay();

@@ -18,6 +18,7 @@
               <tr>
                 <th>ID</th>
                 <th>Full Name</th>
+                <th>Company</th>
                 <th>Gender</th>
                 <th>Contact No</th>
                 <th>Email</th>
@@ -32,6 +33,7 @@
                 <tr class="gradeX">
                   <td><?= $res['id'] ?></td>
                   <td><?= $res['first_name'] . ' ' . (!empty($res['middle_name']) ? $res['middle_name'] . ',' : '') . ' ' . $res['last_name'] ?></td>
+                  <td><?= $res['company'] ?></td>
                   <td><?= $res['gender'] ?></td>
                   <td><?= $res['contact_no'] ?></td>
                   <td><?= $res['email'] ?></td>

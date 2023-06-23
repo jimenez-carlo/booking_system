@@ -146,10 +146,15 @@ class Base
     // $this->query("insert into tbl_system_error (message) values('$error')");
   }
 
+  public function get_company()
+  {
+    return $this->get_list("select id,name as company from tbl_company");
+  }
   public function get_gender()
   {
     return $this->get_list("select id,gender as name from tbl_gender");
   }
+
   public function get_form()
   {
     return $this->get_list("select id,upper(name) as name from tbl_form");

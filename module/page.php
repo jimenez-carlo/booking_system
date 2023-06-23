@@ -25,13 +25,14 @@ if (in_array($page, $pages)) {
   switch ($page) {
       // Admin
     case 'admin_customer_list':
-      $data['customers'] = $request->get_list("select g.gender,UPPER(a.name) as 'access',ui.*,u.*,p.name as province,c.name as city,b.name as barangay from tbl_customers u inner join tbl_customers_info ui on ui.id = u.id inner join tbl_access a on a.id = u.access_id inner join tbl_gender g on g.id = ui.gender_id and u.is_deleted = 0 left join tbl_province p on p.id = ui.province left join tbl_city c on c.id = ui.city left join tbl_barangay b on b.id = ui.barangay");
+      $data['customers'] = $request->get_list("select g.gender,UPPER(cc.name) as 'company',UPPER(a.name) as 'access',ui.*,u.*,p.name as province,c.name as city,b.name as barangay from tbl_customers u inner join tbl_customers_info ui on ui.id = u.id inner join tbl_access a on a.id = u.access_id inner join tbl_gender g on g.id = ui.gender_id and u.is_deleted = 0 left join tbl_province p on p.id = ui.province left join tbl_city c on c.id = ui.city left join tbl_barangay b on b.id = ui.barangay inner join tbl_company cc on cc.id = u.company_id ");
       break;
     case 'admin_customer_create':
       $data['gender'] = $request->get_gender();
       $data['province'] = $request->get_province();
       $data['city'] = $request->get_city();
       $data['barangay'] = $request->get_barangay();
+      $data['company'] = $request->get_company();
       break;
     case 'admin_customer_edit':
       $tmp = $request->get_one("select ui.*,u.* from tbl_customers u inner join tbl_customers_info ui on ui.id = u.id where u.id = $id ");
@@ -40,10 +41,12 @@ if (in_array($page, $pages)) {
       $data['city'] = $request->get_city($tmp->province);
       $data['barangay'] = $request->get_barangay($tmp->city);
       $data['info'] = $tmp;
+      $data['company'] = $request->get_company();
       break;
     case 'admin_form_create':
       $data['customers'] = $request->get_list("select ui.* from tbl_customers u inner join tbl_customers_info ui on ui.id = u.id inner join tbl_access a on a.id = u.access_id where u.is_deleted = 0");
       $data['forms'] = $request->get_form();
+      $data['company'] = $request->get_company();
       break;
 
 

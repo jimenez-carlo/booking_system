@@ -37,8 +37,12 @@
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label><span style="color:red">*</span>Birth Date</label>
-                <input class="form-control" type="date" name="birth_date" id="birth_date" placeholder="Birth Date" value="<?= $info->birth_date ?>">
+                <label><span style="color:red">*</span>Company</label>
+                <select class="form-control" name="company" id="company">
+                  <?php foreach ($company as $res) { ?>
+                    <option value="<?= $res['id'] ?>" <?= $res['id'] == $info->company_id ? 'selected' : '' ?>><?= $res['company'] ?></option>
+                  <?php } ?>
+                </select>
               </div>
             </div>
           </div>
@@ -49,7 +53,7 @@
                 <label><span style="color:red">*</span>Gender</label>
                 <select class="form-control" name="gender" id="gender">
                   <?php foreach ($gender as $res) { ?>
-                    <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
+                    <option value="<?= $res['id'] ?>" <?= $res['id'] == $info->gender_id ? 'selected' : '' ?>><?= $res['name'] ?></option>
                   <?php } ?>
                 </select>
               </div>
@@ -87,6 +91,12 @@
           </div>
 
           <div class="row">
+            <div class="col-lg-3">
+              <div class="form-group">
+                <label><span style="color:red">*</span>Birth Date</label>
+                <input class="form-control" type="date" name="birth_date" id="birth_date" placeholder="Birth Date" value="<?= $info->birth_date ?>">
+              </div>
+            </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label><span style="color:red">*</span>Contact No</label>

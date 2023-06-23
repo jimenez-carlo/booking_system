@@ -76,4 +76,5 @@ if ("id" in localStorage) {
          .done(function(result) {
             $('select[name="barangay"]').html(result);
          });
-   }
+}
+
