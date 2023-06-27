@@ -1,11 +1,55 @@
 <?php
-class Customer extends Base
+class Form extends Base
 {
   private $conn;
   public function __construct($db)
   {
     parent::__construct($db);
     $this->conn = $db;
+  }
+
+
+  public function insert_profit_lost()
+  {
+    extract($this->escape_data($_POST));
+    // Insert Profit
+    if (!empty($profit_name)) {
+      foreach ($profit_name as $key => $title) {
+        $params = [
+          ':company_id' => $company,
+          ':customer_id' => $customer,
+          ':date_target' => $profit_date[$key],
+          ':title' => $title,
+          ':amount' => floatval($profit_val[$key]),
+          ':reference_batch' => $reference_no,
+          ':reference_type' => 'profit',
+          ':reference' => $profit_reference[$key],
+          ':created_by' =>  $_SESSION['user']->id
+        ];
+        $sql = "INSERT into tbl_profit_expenses (company_id, customer_id, date_target, title, amount, reference_batch, reference_type, reference, created_by) VALUES (:company_id, :customer_id, ':date_target', ':title', :amount, ':reference_batch', ':reference_type', ':reference', :created_by)";
+        $sql = strtr($sql, $params);
+        $this->query($sql);
+      }
+    }
+    // Insert Expense
+    if (!empty($expense_name)) {
+      foreach ($expense_name as $key => $title) {
+        $params = [
+          ':company_id' => $company,
+          ':customer_id' => $customer,
+          ':date_target' => $expense_date[$key],
+          ':title' => $title,
+          ':amount' => floatval($expense_val[$key]),
+          ':reference_batch' => $reference_no,
+          ':reference_type' => 'expense',
+          ':reference' => $profit_reference[$key],
+          ':created_by' =>  $_SESSION['user']->id
+        ];
+        $sql = "INSERT into tbl_profit_expenses (company_id, customer_id, date_target, title, amount, reference_batch, reference_type, reference, created_by) VALUES (:company_id, :customer_id, ':date_target', ':title', :amount, ':reference_batch', ':reference_type', ':reference', :created_by)";
+        $sql = strtr($sql, $params);
+        $this->query($sql);
+      }
+    }
   }
 
   public function create()
@@ -17,7 +61,7 @@ class Customer extends Base
     $errors = array();
     $msg = '';
 
-    $required_fields = array('first_name', 'last_name', 'birth_date', 'gender', 'province', 'city', 'barangay', 'contact_no', 'email', 'company');
+    $required_fields = [];
 
     foreach ($required_fields as $res) {
       if (empty(${$res})) {
@@ -33,12 +77,24 @@ class Customer extends Base
       return $result;
     }
 
-    $created_by = $_SESSION['user']->id;
-    $id = $this->insert_get_id("insert into tbl_customers (email,created_by,company_id) values ('$email', '$created_by','$company')");
-    $this->query("insert into tbl_customers_info (id,first_name,middle_name,last_name,contact_no,gender_id, province,city,barangay, birth_date) 
-          values('$id','$first_name','$middle_name','$last_name','$contact_no','$gender', '$province','$city','$barangay','$birth_date')");
+    if ($company == 1 && $customer == 1) {
+      $msg .= "Atleast 1 Company Or Customer Must Be Selected!";
+      $result->result = $this->response_error($msg);
+      $result->items = 'company,customer';
+      return $result;
+    }
+
+    foreach ($this->get_form() as $res) {
+      switch ($form) {
+        case 'insert_' . $res['alias']:
+          $this->{'insert_' . $res['alias']}();
+          break;
+      }
+    }
+
+    $this->insert_profit_lost();
     $result->status = true;
-    $result->result = success_msg("New Customer Created!");
+    $result->result = success_msg("Successfully Created ");
 
     return $result;
   }
@@ -68,7 +124,7 @@ class Customer extends Base
       return $result;
     }
 
-    $this->query("update tbl_customers set email = '$email', company_id = '$company'  where id = $id");
+    $this->query("update tbl_customers set email = '$email', company = '$company'  where id = $id");
     $this->query("update tbl_customers_info set first_name = '$first_name', middle_name =  '$middle_name', last_name = '$last_name', birth_date = '$birth_date', gender_id = '$gender', province = '$province',city='$city',barangay = '$barangay', contact_no = '$contact_no'  where id = $id");
     $result->status = true;
     $result->reset = false;

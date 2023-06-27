@@ -4,7 +4,7 @@
   </div>
 </div>
 <div class="row">
-  <form action="" method="post" name="edit_customer">
+  <form action="" method="post" name="edit_customer" refresh="admin_customer_edit&id=<?= $info->id ?>">
     <input type="hidden" id="id" name="id" value="<?= $info->id ?>">
     <div class="col-lg-12">
       <div class="result"></div>

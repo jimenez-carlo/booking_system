@@ -4,13 +4,13 @@
   </div>
 </div>
 <div class="row">
-  <form action="" method="post" name="create_customer">
+  <form method="post" name="create_<?= reset($forms)['alias'] ?>" refresh="admin_form_create">
     <div class="col-lg-12">
       <div class="result"></div>
       <div class="panel panel-default">
         <div class="panel-heading">
           <!-- Customer Creation Form -->
-          <button type="submit" class="btn btn-sm btn-primary" name="admin_customer_list"> Save <i class="fa fa-check"></i></button>
+          <button type="submit" class="btn btn-sm btn-primary"> Save <i class="fa fa-check"></i></button>
           <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_customer_list"> Back </button>
         </div>
         <!-- /.panel-heading -->
@@ -24,7 +24,7 @@
                 <label><span style="color:red">*</span>Form</label>
                 <select class="form-control select" name="form" id="form">
                   <?php foreach ($forms as $res) { ?>
-                    <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
+                    <option value="create_<?= $res['alias'] ?>"><?= $res['name'] ?></option>
                   <?php } ?>
                 </select>
               </div>
@@ -32,8 +32,8 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <label><span style="color:red">*</span>Reference No#</label>
-                <input class="form-control" type="number" name="reference_no" value="<?= date('Ymdhis') ?>" disabled>
-                <input class="form-control" type="hidden" value="<?= date('Ymdhis') ?>" disabled>
+                <input class="form-control" type="number" value="<?= date('Ymdhis') ?>" disabled>
+                <input class="form-control" type="hidden" name="reference_no" value="<?= date('Ymdhis') ?>">
               </div>
             </div>
           </div>
@@ -72,6 +72,7 @@
                 <thead>
                   <tr>
                     <th>Title</th>
+                    <th>Reference(optional)</th>
                     <th>Amount</th>
                     <th>Date</th>
                     <th>Actions</th>
@@ -80,6 +81,7 @@
                 <tbody>
                   <tr class="gradeX">
                     <td><input class="form-control" type="text" name="profit_name[]" placeholder="Profit"></td>
+                    <td><input class="form-control" type="text" name="profit_reference[]" placeholder="12345"></td>
                     <td><input class="form-control text-right profit-expense" type="number" name="profit_val[]" placeholder="0.00"></td>
                     <td><input class="form-control" type="date" name="profit_date[]" value="<?= date("Y-m-d") ?>"></td>
                     <td><button type="button" class="btn btn-sm btn-primary btn-del-row"> <i class="fa fa-trash"></i> </button></td>
@@ -89,12 +91,13 @@
                   <thead>
                     <tr>
                       <th>Total:</th>
+                      <th></th>
                       <th class="text-right"><input class="form-control text-right total-profit" type="text" placeholder="0.00" disabled></th>
                       <th colspan="2"></th>
                     </tr>
                   </thead>
                   <tr>
-                    <td colspan="4">
+                    <td colspan="5">
                       <button type="button" class="btn btn-sm btn-primary btn-add-profit"> Add <i class="fa fa-plus"></i> </button>
                     </td>
                   </tr>
@@ -110,6 +113,7 @@
                 <thead>
                   <tr>
                     <th>Title</th>
+                    <th>Reference(optional)</th>
                     <th>Amount</th>
                     <th>Date</th>
                     <th>Actions</th>
@@ -119,6 +123,7 @@
                 <tbody>
                   <tr class="gradeX">
                     <td><input class="form-control" type="text" name="expense_name[]" placeholder="Expense"></td>
+                    <td><input class="form-control" type="text" name="expense_reference[]" placeholder="12345"></td>
                     <td><input class="form-control text-right profit-expense" type="number" name="expense_val[]" placeholder="0.00"></td>
                     <td><input class="form-control" type="date" name="expense_date[]" value="<?= date("Y-m-d") ?>"></td>
                     <td><button type="button" class="btn btn-sm btn-primary btn-del-row"> <i class="fa fa-trash"></i> </button></td>
@@ -128,12 +133,13 @@
                   <thead>
                     <tr>
                       <th>Total:</th>
+                      <th></th>
                       <th class="text-right"><input class="form-control text-right total-expense" type="text" placeholder="0.00" disabled></th>
                       <th colspan="2"></th>
                     </tr>
                   </thead>
                   <tr>
-                    <td colspan="4">
+                    <td colspan="5">
                       <button type="button" class="btn btn-sm btn-primary btn-add-expense"> Add <i class="fa fa-plus"></i> </button>
                     </td>
                   </tr>
@@ -162,6 +168,7 @@
       $("#" + type + "_table tbody:first")
         .append('<tr class="gradeX">' +
           '<td><input class="form-control" type="text" name="' + type + '_name[]" placeholder="' + type[0].toUpperCase() + type.slice(1) + '"></td>' +
+          '<td><input class="form-control" type="text" name="' + type + '_reference[]" placeholder="12345"></td>' +
           '<td><input class="form-control text-right profit-expense" type="number" name="' + type + '_val[]" placeholder="0.00"></td>' +
           '<td><input class="form-control" type="date" name="' + type + '_date[]" value="<?= date("Y-m-d") ?>"></td>' +
           '<td><button type="button" class="btn btn-sm btn-primary btn-del-row"> <i class="fa fa-trash"></i> </button></td>' +
@@ -172,6 +179,7 @@
 
   $(document).off('click', '.btn-add-profit');
   $(document).off('click', '.btn-add-expense');
+  $(document).off('change', '#form');
 
   $(document).on('click', '.btn-add-profit', function() {
     add_remove_profit(true);
@@ -226,5 +234,9 @@
 
   $(document).on('click', '.btn-del-row', function() {
     $(this).parent().parent().remove();
+  });
+
+  $(document).on('change', '#form', function() {
+    $('form').attr('name', $(this).val());
   });
 </script>

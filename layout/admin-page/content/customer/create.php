@@ -4,7 +4,7 @@
   </div>
 </div>
 <div class="row">
-  <form action="" method="post" name="create_customer">
+  <form action="" method="post" name="create_customer" refresh="admin_customer_create">
     <div class="col-lg-12">
       <div class="result"></div>
       <div class="panel panel-default">

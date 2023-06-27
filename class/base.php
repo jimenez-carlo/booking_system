@@ -157,7 +157,7 @@ class Base
 
   public function get_form()
   {
-    return $this->get_list("select id,upper(name) as name from tbl_form");
+    return $this->get_list("select id,upper(name) as name, alias from tbl_form");
   }
 
   public function get_province()
