@@ -116,6 +116,114 @@
         <!-- /.panel-body -->
       </div>
       <!-- /.panel -->
+
+
+
+      <div class="panel-body">
+        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+          <ul id="myTab" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#payment_tab" id="payment_tab-tab" role="tab" data-toggle="tab" aria-controls="payment_tab" aria-expanded="true">Payments History</a></li>
+            <li role="presentation" class=""><a href="#disbursement_tab" role="tab" id="disbursement_tab-tab" data-toggle="tab" aria-controls="disbursement_tab" aria-expanded="false">Disbursement History</a></li>
+            <li role="presentation" class=""><a href="#invoice_tab" role="tab" id="invoice_tab-tab" data-toggle="tab" aria-controls="invoice_tab" aria-expanded="false">Invoice History</a></li>
+          </ul>
+          <div id="myTabContent" class="tab-content" style="padding: 25px;border:1px solid #ddd">
+            <div role="tabpanel" class="tab-pane fade active in" id="payment_tab" aria-labelledby="payment_tab-tab">
+              <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover" id="customer_payments_history">
+                  <thead>
+                    <tr>
+                      <th>Reference No#</th>
+                      <th>Invoice#</th>
+                      <th>Title</th>
+                      <th>Company</th>
+                      <th>Amount</th>
+                      <th>Date Created</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($payment_history as $res) { ?>
+                      <tr class="gradeX">
+                        <td><?= $res['reference'] ?></td>
+                        <td><?= $res['title'] ?></td>
+                        <td><?= $res['invoice'] ?></td>
+                        <td><?= $res['company'] ?></td>
+                        <td class="text-right"><?= $res['amount'] ?></td>
+                        <td><?= $res['date_created'] ?></td>
+                      </tr>
+                    <?php } ?>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="disbursement_tab" aria-labelledby="disbursement_tab-tab">
+              <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover" id="customer_disbursement_history">
+                  <thead>
+                    <tr>
+                      <th>Reference No#</th>
+                      <th>Invoice#</th>
+                      <th>Title</th>
+                      <th>Company</th>
+                      <th>ledger</th>
+                      <th>Amount</th>
+                      <th>Date Created</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($disbursement_history as $res) { ?>
+                      <tr class="gradeX">
+                        <td><?= $res['reference'] ?></td>
+                        <td><?= $res['invoice'] ?></td>
+                        <td><?= $res['title'] ?></td>
+                        <td><?= $res['company'] ?></td>
+                        <td><?= $res['ledger'] ?></td>
+                        <td class="text-right"><?= $res['amount'] ?></td>
+                        <td><?= $res['date_created'] ?></td>
+                      </tr>
+                    <?php } ?>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="invoice_tab" aria-labelledby="invoice_tab-tab">
+              <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover" id="customer_invoice_history">
+                  <thead>
+                    <tr>
+                      <th>Invoice#</th>
+                      <th>Company</th>
+                      <th>Total Amount</th>
+                      <th>Total Paid</th>
+                      <th>Total Balance</th>
+                      <th>Due Date</th>
+                      <th>Date Created</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($invoice_history as $res) { ?>
+                      <tr class="gradeX">
+                        <td><?= $res['invoice'] ?></td>
+                        <td><?= $res['company'] ?></td>
+                        <td class="text-right"><?= abs($res['invoice_total']) ?></td>
+                        <td class="text-right"><?= $res['payment_total'] ?></td>
+                        <td class="text-right"><?= abs($res['invoice_total'] - $res['payment_total'])  ?></td>
+                        <td><?= $res['due_date'] ?></td>
+                        <td><?= $res['date_created'] ?></td>
+                      </tr>
+                    <?php } ?>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
     </div>
   </form>
   <!-- /.col-lg-12 -->
@@ -129,5 +237,25 @@
 
   $('select[name="city"]').on('change', function() {
     barangay();
+  });
+
+
+  $(document).ready(function() {
+
+    if (!$.fn.DataTable.isDataTable('#customer_payments_history')) {
+      $('#customer_payments_history').DataTable({
+        responsive: true
+      });
+    }
+    if (!$.fn.DataTable.isDataTable('#customer_disbursement_history')) {
+      $('#customer_disbursement_history').DataTable({
+        responsive: true
+      });
+    }
+    if (!$.fn.DataTable.isDataTable('#customer_invoice_history')) {
+      $('#customer_invoice_history').DataTable({
+        responsive: true
+      });
+    }
   });
 </script>
