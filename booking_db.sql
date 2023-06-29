@@ -255,7 +255,7 @@ CREATE TABLE `tbl_form` (
 
 LOCK TABLES `tbl_form` WRITE;
 /*!40000 ALTER TABLE `tbl_form` DISABLE KEYS */;
-INSERT INTO `tbl_form` VALUES (1,'PROFIT/LOST',0,'profit_lost'),(2,'STATEMENT OF ACCOUNT',0,'statement_of_account'),(3,'SALES TAX',0,'sales_tax'),(4,'PAYMENT',0,'payment'),(5,'DISBURSEMENT',0,'disbursement'),(6,'INCOME AND EXPENSES',0,'income_and_expenses');
+INSERT INTO `tbl_form` VALUES (1,'INVOICE',0,'invoice'),(2,'PAYMENT',0,'payment'),(3,'DISBURSEMENT',0,'disbursement');
 /*!40000 ALTER TABLE `tbl_form` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -285,13 +285,104 @@ INSERT INTO `tbl_gender` VALUES (1,'MALE',0),(2,'FEMALE',0);
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbl_profit_expenses`
+-- Table structure for table `tbl_invoice`
 --
 
-DROP TABLE IF EXISTS `tbl_profit_expenses`;
+DROP TABLE IF EXISTS `tbl_invoice`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbl_profit_expenses` (
+CREATE TABLE `tbl_invoice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `invoice` varchar(45) DEFAULT NULL,
+  `remarks` varchar(45) DEFAULT NULL,
+  `date_created` datetime DEFAULT current_timestamp(),
+  `due_date` date DEFAULT NULL,
+  `created_by` varchar(45) DEFAULT NULL,
+  `is_deleted` tinyint(4) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_invoice`
+--
+
+LOCK TABLES `tbl_invoice` WRITE;
+/*!40000 ALTER TABLE `tbl_invoice` DISABLE KEYS */;
+INSERT INTO `tbl_invoice` VALUES (1,'12346',NULL,'2023-06-29 03:22:24',NULL,'1',0),(2,'20230629091246','','2023-06-29 17:12:57','2023-06-29','1',0),(3,'20230629091246','','2023-06-29 17:12:57','2023-06-29','1',0),(4,'20230629091246','','2023-06-29 17:13:16','2023-06-29','1',0),(5,'20230629091246','','2023-06-29 17:13:16','2023-06-29','1',0),(6,'20230629091316','','2023-06-29 17:13:39','2023-06-29','1',0),(7,'20230629091316','','2023-06-29 17:13:39','2023-06-29','1',0),(8,'20230629091339','','2023-06-29 17:18:27','2023-06-29','1',0),(9,'20230629091339','','2023-06-29 17:18:50','2023-06-29','1',0),(10,'20230629091339','','2023-06-29 17:19:13','2023-06-29','1',0),(11,'20230629091339','','2023-06-29 17:19:13','2023-06-29','1',0),(12,'20230629094856','test','2023-06-29 17:49:20','2023-06-29','1',0),(13,'20230629094856','test','2023-06-29 17:49:20','2023-06-29','1',0),(14,'20230629095008','','2023-06-29 17:50:22','2023-06-29','1',0),(15,'20230629100536','','2023-06-29 18:05:46','2023-06-29','1',0),(16,'20230629100546','','2023-06-29 18:05:49','2023-06-29','1',0),(17,'20230629101830','test','2023-06-29 18:19:26',NULL,'1',0);
+/*!40000 ALTER TABLE `tbl_invoice` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_invoice_payment`
+--
+
+DROP TABLE IF EXISTS `tbl_invoice_payment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_invoice_payment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `invoice` varchar(45) DEFAULT NULL,
+  `title` varchar(45) DEFAULT NULL,
+  `amount` decimal(9,2) DEFAULT NULL,
+  `company_id` int(11) DEFAULT NULL,
+  `customer_id` int(11) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `date_created` datetime DEFAULT current_timestamp(),
+  `is_deleted` tinyint(4) DEFAULT 0,
+  `remarks` text DEFAULT NULL,
+  `reference` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_invoice_payment`
+--
+
+LOCK TABLES `tbl_invoice_payment` WRITE;
+/*!40000 ALTER TABLE `tbl_invoice_payment` DISABLE KEYS */;
+INSERT INTO `tbl_invoice_payment` VALUES (1,'20230629091246','',500.00,1,47,1,'2023-06-29 17:51:31',0,'','123456');
+/*!40000 ALTER TABLE `tbl_invoice_payment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_invoice_tax`
+--
+
+DROP TABLE IF EXISTS `tbl_invoice_tax`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_invoice_tax` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `invoice` varchar(45) DEFAULT NULL,
+  `title` varchar(45) DEFAULT NULL,
+  `amount` decimal(9,2) DEFAULT NULL,
+  `date_created` datetime DEFAULT current_timestamp(),
+  `created_by` int(11) DEFAULT NULL,
+  `is_deleted` tinyint(4) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_invoice_tax`
+--
+
+LOCK TABLES `tbl_invoice_tax` WRITE;
+/*!40000 ALTER TABLE `tbl_invoice_tax` DISABLE KEYS */;
+INSERT INTO `tbl_invoice_tax` VALUES (1,'20230629091339','test',123.00,'2023-06-29 17:19:13',1,0),(2,'20230629091339','test',222.00,'2023-06-29 17:19:13',1,0),(3,'20230629091339','',0.00,'2023-06-29 17:19:13',1,0),(4,'20230629091339','test',123.00,'2023-06-29 17:19:13',1,0),(5,'20230629091339','test',222.00,'2023-06-29 17:19:13',1,0),(6,'20230629091339','',0.00,'2023-06-29 17:19:13',1,0),(7,'20230629094856','',0.00,'2023-06-29 17:49:20',1,0),(8,'20230629094856','',0.00,'2023-06-29 17:49:20',1,0),(9,'20230629095008','',0.00,'2023-06-29 17:50:22',1,0),(10,'20230629100536','',0.00,'2023-06-29 18:05:46',1,0),(11,'20230629100546','',0.00,'2023-06-29 18:05:49',1,0);
+/*!40000 ALTER TABLE `tbl_invoice_tax` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_invoice_transaction`
+--
+
+DROP TABLE IF EXISTS `tbl_invoice_transaction`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_invoice_transaction` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `company_id` int(11) DEFAULT 0,
   `customer_id` int(11) DEFAULT 0,
@@ -299,22 +390,24 @@ CREATE TABLE `tbl_profit_expenses` (
   `date_target` date DEFAULT NULL,
   `amount` decimal(9,2) DEFAULT NULL,
   `title` varchar(45) DEFAULT NULL,
-  `reference_batch` varchar(45) DEFAULT NULL,
-  `reference_type` enum('expense','profit') DEFAULT 'profit',
-  `reference` varchar(45) DEFAULT NULL,
+  `reference_type` enum('expense','profit','disbursement') DEFAULT 'profit',
+  `invoice` varchar(45) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
+  `is_deleted` tinyint(4) DEFAULT 0,
+  `ledger` varchar(45) DEFAULT NULL,
+  `reference` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbl_profit_expenses`
+-- Dumping data for table `tbl_invoice_transaction`
 --
 
-LOCK TABLES `tbl_profit_expenses` WRITE;
-/*!40000 ALTER TABLE `tbl_profit_expenses` DISABLE KEYS */;
-INSERT INTO `tbl_profit_expenses` VALUES (1,2,1,'2023-06-28 03:57:30','2023-06-27',0.00,'','20230627072755','profit','',1),(2,2,1,'2023-06-28 03:57:30','2023-06-27',0.00,'','20230627072755','expense','',1),(3,2,47,'2023-06-28 03:59:43','2023-06-27',150.00,'profit 1','20230627075900','profit','12346',1),(4,2,47,'2023-06-28 03:59:43','2023-06-27',200.00,'profit 2','20230627075900','profit','12346',1),(5,2,47,'2023-06-28 03:59:43','2023-06-27',200.00,'expense 1','20230627075900','expense','12346',1),(6,2,47,'2023-06-28 03:59:43','2023-06-27',400.00,'expense 2','20230627075900','expense','12346',1);
-/*!40000 ALTER TABLE `tbl_profit_expenses` ENABLE KEYS */;
+LOCK TABLES `tbl_invoice_transaction` WRITE;
+/*!40000 ALTER TABLE `tbl_invoice_transaction` DISABLE KEYS */;
+INSERT INTO `tbl_invoice_transaction` VALUES (1,2,1,'2023-06-28 03:57:30','2023-06-27',0.00,'','profit','',1,0,NULL,NULL),(2,2,1,'2023-06-28 03:57:30','2023-06-27',0.00,'','expense','',1,0,NULL,NULL),(3,2,47,'2023-06-28 03:59:43','2023-06-27',150.00,'profit 1','profit','12346',1,0,NULL,NULL),(4,2,47,'2023-06-28 03:59:43','2023-06-27',200.00,'profit 2','profit','12346',1,0,NULL,NULL),(5,2,47,'2023-06-28 03:59:43','2023-06-27',200.00,'expense 1','expense','12346',1,0,NULL,NULL),(6,2,47,'2023-06-28 03:59:43','2023-06-27',400.00,'expense 2','expense','12346',1,0,NULL,NULL),(21,1,47,'2023-06-29 15:33:42','2023-06-29',0.00,'','profit','',1,0,NULL,NULL),(22,1,47,'2023-06-29 15:33:42','2023-06-29',0.00,'','expense','',1,0,NULL,NULL),(23,2,1,'2023-06-29 15:43:22','2023-06-29',0.00,'','profit','',1,0,NULL,NULL),(24,2,1,'2023-06-29 15:43:22','2023-06-29',0.00,'','expense','',1,0,NULL,NULL),(25,3,1,'2023-06-29 15:45:38','2023-06-29',0.00,'','profit','',1,0,NULL,NULL),(26,3,1,'2023-06-29 15:45:38','2023-06-29',0.00,'','expense','',1,0,NULL,NULL),(27,2,1,'2023-06-29 17:12:06','2023-06-29',0.00,'','profit','',1,0,NULL,NULL),(28,2,1,'2023-06-29 17:12:06','2023-06-29',0.00,'','expense','',1,0,NULL,NULL),(29,2,1,'2023-06-29 17:12:57','2023-06-29',0.00,'','profit','',1,0,NULL,NULL),(30,2,1,'2023-06-29 17:12:57','2023-06-29',0.00,'','expense','',1,0,NULL,NULL),(31,2,1,'2023-06-29 17:12:57','2023-06-29',0.00,'','profit','',1,0,NULL,NULL),(32,2,1,'2023-06-29 17:12:57','2023-06-29',0.00,'','expense','',1,0,NULL,NULL),(33,2,1,'2023-06-29 17:13:16','2023-06-29',0.00,'','profit','',1,0,NULL,NULL),(34,2,1,'2023-06-29 17:13:16','2023-06-29',0.00,'','expense','',1,0,NULL,NULL),(35,2,1,'2023-06-29 17:13:16','2023-06-29',0.00,'','profit','',1,0,NULL,NULL),(36,2,1,'2023-06-29 17:13:16','2023-06-29',0.00,'','expense','',1,0,NULL,NULL),(37,2,1,'2023-06-29 17:13:39','2023-06-29',0.00,'','profit','',1,0,NULL,NULL),(38,2,1,'2023-06-29 17:13:39','2023-06-29',0.00,'','expense','',1,0,NULL,NULL),(39,2,1,'2023-06-29 17:13:39','2023-06-29',0.00,'','profit','',1,0,NULL,NULL),(40,2,1,'2023-06-29 17:13:39','2023-06-29',0.00,'','expense','',1,0,NULL,NULL),(41,3,1,'2023-06-29 17:18:27','2023-06-29',0.00,'','profit','20230629091339',1,0,NULL,NULL),(42,3,1,'2023-06-29 17:18:27','2023-06-29',0.00,'','expense','20230629091339',1,0,NULL,NULL),(43,3,1,'2023-06-29 17:18:50','2023-06-29',0.00,'','profit','20230629091339',1,0,NULL,NULL),(44,3,1,'2023-06-29 17:18:50','2023-06-29',0.00,'','expense','20230629091339',1,0,NULL,NULL),(45,3,1,'2023-06-29 17:19:13','2023-06-29',0.00,'','profit','20230629091339',1,0,NULL,NULL),(46,3,1,'2023-06-29 17:19:13','2023-06-29',0.00,'','expense','20230629091339',1,0,NULL,NULL),(47,3,1,'2023-06-29 17:19:13','2023-06-29',0.00,'','profit','20230629091339',1,0,NULL,NULL),(48,3,1,'2023-06-29 17:19:13','2023-06-29',0.00,'','expense','20230629091339',1,0,NULL,NULL),(49,1,47,'2023-06-29 17:49:20','2023-06-29',0.00,'','profit','20230629094856',1,0,NULL,NULL),(50,1,47,'2023-06-29 17:49:20','2023-06-29',0.00,'','expense','20230629094856',1,0,NULL,NULL),(51,1,47,'2023-06-29 17:49:20','2023-06-29',0.00,'','profit','20230629094856',1,0,NULL,NULL),(52,1,47,'2023-06-29 17:49:20','2023-06-29',0.00,'','expense','20230629094856',1,0,NULL,NULL),(53,1,47,'2023-06-29 17:50:22','2023-06-29',0.00,'','profit','20230629095008',1,0,NULL,NULL),(54,1,47,'2023-06-29 17:50:22','2023-06-29',0.00,'','expense','20230629095008',1,0,NULL,NULL),(55,2,1,'2023-06-29 18:05:46','2023-06-29',0.00,'','profit','20230629100536',1,0,NULL,NULL),(56,2,1,'2023-06-29 18:05:46','2023-06-29',0.00,'','expense','20230629100536',1,0,NULL,NULL),(57,2,1,'2023-06-29 18:05:49','2023-06-29',0.00,'','profit','20230629100546',1,0,NULL,NULL),(58,2,1,'2023-06-29 18:05:49','2023-06-29',0.00,'','expense','20230629100546',1,0,NULL,NULL),(59,1,47,'2023-06-29 18:19:26',NULL,5000.00,'transportation','disbursement','20230629101830',1,0,NULL,'test');
+/*!40000 ALTER TABLE `tbl_invoice_transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -435,4 +528,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-28  4:44:31
+-- Dump completed on 2023-06-30  1:28:06
