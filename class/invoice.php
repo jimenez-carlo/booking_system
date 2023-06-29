@@ -11,10 +11,11 @@ class Invoice extends Base
   public function insert_transaction($data)
   {
     $sql = "INSERT INTO tbl_invoice_transaction 
-          ( company_id, customer_id, date_target, title, amount, reference_type, invoice,reference_no, created_by) VALUES 
+          ( company_id, customer_id, date_target, title, amount, reference_type, invoice, reference, created_by) VALUES 
           (:company_id, :customer_id, ':date_target', ':title', ':amount', ':reference_type', ':invoice',':reference_no' :created_by)";
     $sql = strtr($sql, $data);
     $this->query($sql);
+    echo $sql;
   }
 
   public function insert_tax($data)
