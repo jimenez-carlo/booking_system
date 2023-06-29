@@ -26,7 +26,7 @@ class Form extends Base
           ':reference' => $profit_reference[$key],
           ':created_by' =>  $_SESSION['user']->id
         ];
-        $sql = "INSERT into tbl_profit_expenses (company_id, customer_id, date_target, title, amount, reference_batch, reference_type, reference, created_by) VALUES (:company_id, :customer_id, ':date_target', ':title', :amount, ':reference_batch', ':reference_type', ':reference', :created_by)";
+        $sql = "INSERT into tbl_invoice_transaction (company_id, customer_id, date_target, title, amount, reference_batch, reference_type, invoice, created_by) VALUES (:company_id, :customer_id, ':date_target', ':title', :amount, ':reference_batch', ':reference_type', ':reference', :created_by)";
         $sql = strtr($sql, $params);
         $this->query($sql);
       }
@@ -45,7 +45,7 @@ class Form extends Base
           ':reference' => $profit_reference[$key],
           ':created_by' =>  $_SESSION['user']->id
         ];
-        $sql = "INSERT into tbl_profit_expenses (company_id, customer_id, date_target, title, amount, reference_batch, reference_type, reference, created_by) VALUES (:company_id, :customer_id, ':date_target', ':title', :amount, ':reference_batch', ':reference_type', ':reference', :created_by)";
+        $sql = "INSERT into tbl_invoice_transaction (company_id, customer_id, date_target, title, amount, reference_batch, reference_type, invoice, created_by) VALUES (:company_id, :customer_id, ':date_target', ':title', :amount, ':reference_batch', ':reference_type', ':reference', :created_by)";
         $sql = strtr($sql, $params);
         $this->query($sql);
       }
