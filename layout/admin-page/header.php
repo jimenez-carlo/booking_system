@@ -24,6 +24,7 @@
 
   <!-- DataTables Responsive CSS -->
   <link href="css/dataTables/dataTables.responsive.css" rel="stylesheet">
+  <!-- <link href="css/dataTables/buttons.css" rel="stylesheet"> -->
 
   <!-- Custom CSS -->
   <link href="css/startmin.css" rel="stylesheet">

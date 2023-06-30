@@ -57,9 +57,23 @@
 </div>
 <script>
   $(document).ready(function() {
-
     if (!$.fn.DataTable.isDataTable('#dataTables-example')) {
       $('#dataTables-example').DataTable({
+        dom: '<"custom_bar"<"flex"lB>f>rtip',
+        buttons: [{
+          extend: 'copy',
+          text: 'Copy <i class="fa fa-clipboard" aria-hidden="true"></i>',
+          className: 'btn btn-sm btn-primary'
+
+        }, {
+          extend: 'csv',
+          text: 'Csv <i class="fa fa-print" aria-hidden="true"></i>',
+          className: 'btn btn-sm btn-primary',
+        }, {
+          extend: 'excelHtml5',
+          text: 'Excel <i class="fa fa-print" aria-hidden="true"></i>',
+          className: 'btn btn-sm btn-primary',
+        }],
         responsive: true
       });
     }

@@ -11,7 +11,7 @@
         <div class="panel-heading">
           <!-- Customer Creation Form -->
           <button type="submit" class="btn btn-sm btn-primary" name="admin_customer_list"> Save <i class="fa fa-check"></i></button>
-          <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_customer_list"> Back </button>
+          <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_customer_list"><i class="fa fa-backward" aria-hidden="true"></i> Back </button>
         </div>
         <!-- /.panel-heading -->
         <div class="panel-body">

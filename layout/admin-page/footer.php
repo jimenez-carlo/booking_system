@@ -15,6 +15,9 @@
 <!-- DataTables JavaScript -->
 <script src="js/dataTables/jquery.dataTables.min.js"></script>
 <script src="js/dataTables/dataTables.bootstrap.min.js"></script>
+<script src="js/dataTables/buttons.js"></script>
+<script src="js/dataTables/buttonszip.js"></script>
+<script src="js/dataTables/html5buttons.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="js/startmin.js"></script>

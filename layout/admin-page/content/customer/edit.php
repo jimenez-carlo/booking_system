@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header"><i class="fa fa-user-edit"></i> Editing Customer #<?= $info->id ?> </h1>
+    <h1 class="page-header"><i class="fa fa-user-edit"></i> Editing Customer ID#<?= $info->id ?> </h1>
   </div>
 </div>
 <div class="row">
@@ -12,7 +12,7 @@
         <div class="panel-heading">
           <!-- Customer Creation Form -->
           <button type="submit" class="btn btn-sm btn-primary" name="admin_customer_list"> Update <i class="fa fa-check"></i></button>
-          <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_customer_list"> Back </button>
+          <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_customer_list"><i class="fa fa-backward" aria-hidden="true"></i> Back </button>
         </div>
         <!-- /.panel-heading -->
         <div class="panel-body">
@@ -119,107 +119,111 @@
 
 
 
-      <div class="panel-body">
-        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-          <ul id="myTab" class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#payment_tab" id="payment_tab-tab" role="tab" data-toggle="tab" aria-controls="payment_tab" aria-expanded="true">Payments History</a></li>
-            <li role="presentation" class=""><a href="#disbursement_tab" role="tab" id="disbursement_tab-tab" data-toggle="tab" aria-controls="disbursement_tab" aria-expanded="false">Disbursement History</a></li>
-            <li role="presentation" class=""><a href="#invoice_tab" role="tab" id="invoice_tab-tab" data-toggle="tab" aria-controls="invoice_tab" aria-expanded="false">Invoice History</a></li>
-          </ul>
-          <div id="myTabContent" class="tab-content" style="padding: 25px;border:1px solid #ddd">
-            <div role="tabpanel" class="tab-pane fade active in" id="payment_tab" aria-labelledby="payment_tab-tab">
-              <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover" id="customer_payments_history">
-                  <thead>
-                    <tr>
-                      <th>Reference No#</th>
-                      <th>Invoice#</th>
-                      <th>Title</th>
-                      <th>Company</th>
-                      <th>Amount</th>
-                      <th>Date Created</th>
+      <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+        <ul id="myTab" class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#payment_tab" id="payment_tab-tab" role="tab" data-toggle="tab" aria-controls="payment_tab" aria-expanded="true"><i class="fa fa-history" aria-hidden="true"></i> Payments History</a></li>
+          <li role="presentation" class=""><a href="#disbursement_tab" role="tab" id="disbursement_tab-tab" data-toggle="tab" aria-controls="disbursement_tab" aria-expanded="false"><i class="fa fa-history" aria-hidden="true"></i> Disbursement History</a></li>
+          <li role="presentation" class=""><a href="#invoice_tab" role="tab" id="invoice_tab-tab" data-toggle="tab" aria-controls="invoice_tab" aria-expanded="false"><i class="fa fa-history" aria-hidden="true"></i> Invoice History</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content" style="padding: 25px;border:1px solid #ddd">
+          <div role="tabpanel" class="tab-pane fade active in" id="payment_tab" aria-labelledby="payment_tab-tab">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered table-hover" id="customer_payments_history">
+                <thead>
+                  <tr>
+                    <th>ID#</th>
+                    <th>Reference No#</th>
+                    <th>Invoice#</th>
+                    <th>Title</th>
+                    <th>Company</th>
+                    <th>Amount</th>
+                    <th>Date Created</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach ($payment_history as $res) { ?>
+                    <tr class="gradeX">
+                      <td><?= $res['id'] ?></td>
+                      <td><?= $res['reference'] ?></td>
+                      <td><?= $res['title'] ?></td>
+                      <td><?= $res['invoice'] ?></td>
+                      <td><?= $res['company'] ?></td>
+                      <td class="text-right"><?= $res['amount'] ?></td>
+                      <td><?= $res['date_created'] ?></td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    <?php foreach ($payment_history as $res) { ?>
-                      <tr class="gradeX">
-                        <td><?= $res['reference'] ?></td>
-                        <td><?= $res['title'] ?></td>
-                        <td><?= $res['invoice'] ?></td>
-                        <td><?= $res['company'] ?></td>
-                        <td class="text-right"><?= $res['amount'] ?></td>
-                        <td><?= $res['date_created'] ?></td>
-                      </tr>
-                    <?php } ?>
+                  <?php } ?>
 
-                  </tbody>
-                </table>
-              </div>
+                </tbody>
+              </table>
             </div>
-            <div role="tabpanel" class="tab-pane fade" id="disbursement_tab" aria-labelledby="disbursement_tab-tab">
-              <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover" id="customer_disbursement_history">
-                  <thead>
-                    <tr>
-                      <th>Reference No#</th>
-                      <th>Invoice#</th>
-                      <th>Title</th>
-                      <th>Company</th>
-                      <th>ledger</th>
-                      <th>Amount</th>
-                      <th>Date Created</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php foreach ($disbursement_history as $res) { ?>
-                      <tr class="gradeX">
-                        <td><?= $res['reference'] ?></td>
-                        <td><?= $res['invoice'] ?></td>
-                        <td><?= $res['title'] ?></td>
-                        <td><?= $res['company'] ?></td>
-                        <td><?= $res['ledger'] ?></td>
-                        <td class="text-right"><?= $res['amount'] ?></td>
-                        <td><?= $res['date_created'] ?></td>
-                      </tr>
-                    <?php } ?>
-
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="invoice_tab" aria-labelledby="invoice_tab-tab">
-              <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover" id="customer_invoice_history">
-                  <thead>
-                    <tr>
-                      <th>Invoice#</th>
-                      <th>Company</th>
-                      <th>Total Amount</th>
-                      <th>Total Paid</th>
-                      <th>Total Balance</th>
-                      <th>Due Date</th>
-                      <th>Date Created</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php foreach ($invoice_history as $res) { ?>
-                      <tr class="gradeX">
-                        <td><?= $res['invoice'] ?></td>
-                        <td><?= $res['company'] ?></td>
-                        <td class="text-right"><?= abs($res['invoice_total']) ?></td>
-                        <td class="text-right"><?= $res['payment_total'] ?></td>
-                        <td class="text-right"><?= abs($res['invoice_total'] - $res['payment_total'])  ?></td>
-                        <td><?= $res['due_date'] ?></td>
-                        <td><?= $res['date_created'] ?></td>
-                      </tr>
-                    <?php } ?>
-
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
           </div>
+          <div role="tabpanel" class="tab-pane fade" id="disbursement_tab" aria-labelledby="disbursement_tab-tab">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered table-hover" id="customer_disbursement_history">
+                <thead>
+                  <tr>
+                    <th>ID#</th>
+                    <th>Reference No#</th>
+                    <th>Invoice#</th>
+                    <th>Title</th>
+                    <th>Company</th>
+                    <th>ledger</th>
+                    <th>Amount</th>
+                    <th>Date Created</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach ($disbursement_history as $res) { ?>
+                    <tr class="gradeX">
+                      <td><?= $res['id'] ?></td>
+                      <td><?= $res['reference'] ?></td>
+                      <td><?= $res['invoice'] ?></td>
+                      <td><?= $res['title'] ?></td>
+                      <td><?= $res['company'] ?></td>
+                      <td><?= $res['ledger'] ?></td>
+                      <td class="text-right"><?= $res['amount'] ?></td>
+                      <td><?= $res['date_created'] ?></td>
+                    </tr>
+                  <?php } ?>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="invoice_tab" aria-labelledby="invoice_tab-tab">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered table-hover" id="customer_invoice_history">
+                <thead>
+                  <tr>
+                    <th>ID#</th>
+                    <th>Invoice#</th>
+                    <th>Company</th>
+                    <th>Total Amount</th>
+                    <th>Total Paid</th>
+                    <th>Total Balance</th>
+                    <th>Due Date</th>
+                    <th>Date Created</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach ($invoice_history as $res) { ?>
+                    <tr class="gradeX">
+                      <td><?= $res['id'] ?></td>
+                      <td><?= $res['invoice'] ?></td>
+                      <td><?= $res['company'] ?></td>
+                      <td class="text-right"><?= abs($res['invoice_total']) ?></td>
+                      <td class="text-right"><?= $res['payment_total'] ?></td>
+                      <td class="text-right"><?= abs($res['invoice_total'] - $res['payment_total'])  ?></td>
+                      <td><?= $res['due_date'] ?></td>
+                      <td><?= $res['date_created'] ?></td>
+                    </tr>
+                  <?php } ?>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -244,16 +248,67 @@
 
     if (!$.fn.DataTable.isDataTable('#customer_payments_history')) {
       $('#customer_payments_history').DataTable({
+        dom: '<"custom_bar"<"flex"lB>f>rtip',
+        buttons: [{
+          extend: 'copy',
+          text: 'Copy <i class="fa fa-clipboard" aria-hidden="true"></i>',
+          className: 'btn btn-sm btn-primary'
+
+        }, {
+          extend: 'csv',
+          text: 'Csv <i class="fa fa-print" aria-hidden="true"></i>',
+          className: 'btn btn-sm btn-primary',
+          title: 'Payment History(Customer ID#<?= $info->id ?>)'
+        }, {
+          extend: 'excelHtml5',
+          text: 'Excel <i class="fa fa-print" aria-hidden="true"></i>',
+          className: 'btn btn-sm btn-primary',
+          title: 'Payment History(Customer ID#<?= $info->id ?>)'
+        }],
         responsive: true
       });
     }
     if (!$.fn.DataTable.isDataTable('#customer_disbursement_history')) {
       $('#customer_disbursement_history').DataTable({
+        dom: '<"custom_bar"<"flex"lB>f>rtip',
+        buttons: [{
+          extend: 'copy',
+          text: 'Copy <i class="fa fa-clipboard" aria-hidden="true"></i>',
+          className: 'btn btn-sm btn-primary'
+
+        }, {
+          extend: 'csv',
+          text: 'Csv <i class="fa fa-print" aria-hidden="true"></i>',
+          className: 'btn btn-sm btn-primary',
+          title: 'Disbursement History(Customer ID#<?= $info->id ?>)'
+        }, {
+          extend: 'excelHtml5',
+          text: 'Excel <i class="fa fa-print" aria-hidden="true"></i>',
+          className: 'btn btn-sm btn-primary',
+          title: 'Disbursement History(Customer ID#<?= $info->id ?>)'
+        }],
         responsive: true
       });
     }
     if (!$.fn.DataTable.isDataTable('#customer_invoice_history')) {
       $('#customer_invoice_history').DataTable({
+        dom: '<"custom_bar"<"flex"lB>f>rtip',
+        buttons: [{
+          extend: 'copy',
+          text: 'Copy <i class="fa fa-clipboard" aria-hidden="true"></i>',
+          className: 'btn btn-sm btn-primary'
+
+        }, {
+          extend: 'csv',
+          text: 'Csv <i class="fa fa-print" aria-hidden="true"></i>',
+          className: 'btn btn-sm btn-primary',
+          title: 'Invoice History(Customer ID#<?= $info->id ?>)'
+        }, {
+          extend: 'excelHtml5',
+          text: 'Excel <i class="fa fa-print" aria-hidden="true"></i>',
+          className: 'btn btn-sm btn-primary',
+          title: 'Invoice History(Customer ID#<?= $info->id ?>)'
+        }],
         responsive: true
       });
     }

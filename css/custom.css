@@ -37,3 +37,18 @@ input[type=number] {
 color:unset!important;
 background:#eee;
 }
+
+.dataTables_length{
+  /* position: absolute; */
+}
+.dt-buttons{
+  margin-left:10px;
+}
+.custom_bar{
+display:flex;
+justify-content: space-between;
+}
+
+.flex{
+display: flex;
+}
