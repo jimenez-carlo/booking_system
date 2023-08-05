@@ -1,0 +1,38 @@
+Tax Name:
+Rate:%
+
+Account type:
+Assets
+ other assets
+ cash
+ bank
+ fixed asset
+ stock
+ payment clearing
+ input tax
+Liability
+ other liability
+ credit card
+ tax payable
+ output tax
+Equity
+ Income
+ other income
+Expense
+ expense
+ cost of goods sold
+ other expenses
+
+Account Name
+Account Code
+Description
+
+
+Journal
+ Date
+ Journal# (w/ prefix auto generated)
+ Reference# 
+ Notes
+
+Account type, description, tax, Debit, Credit
+Attachments

@@ -27,8 +27,12 @@ if (!function_exists('get_access')) {
         return array(
           'dashboard',
           'admin_customer_list',
+          'admin_customer_list2',
           'admin_customer_create',
           'admin_customer_edit',
+          'admin_account_list',
+          'admin_account_create',
+          'admin_account_edit',
           'admin_form_create',
           'admin_form_edit',
         );
@@ -48,10 +52,22 @@ if (!function_exists('page_url')) {
         return '../layout/admin-page/content/dashboard.php';
       case 'admin_customer_list':
         return '../layout/admin-page/content/customer/list.php';
+      case 'admin_customer_list2':
+        return '../layout/admin-page/content/customer/list2.php';
       case 'admin_customer_create':
         return '../layout/admin-page/content/customer/create.php';
       case 'admin_customer_edit':
         return '../layout/admin-page/content/customer/edit.php';
+
+
+      case 'admin_account_list':
+        return '../layout/admin-page/content/account/list.php';
+      case 'admin_account_create':
+        return '../layout/admin-page/content/account/create.php';
+      case 'admin_account_edit':
+        return '../layout/admin-page/content/account/edit.php';
+
+
       case 'admin_form_create':
         return '../layout/admin-page/content/form/create.php';
       case 'admin_form_edit':

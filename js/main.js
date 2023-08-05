@@ -78,3 +78,30 @@ if ("id" in localStorage) {
          });
 }
 
+   function parent_account($default = 0) {
+      $.ajax({
+            method: "POST",
+            url: base_url+"/module/parent_account.php?id=" + $('select[name="account_type"]').val()+"&selected="+$default
+         })
+         .done(function(result) {
+            $('select[name="parent_account_type"]').html(result);
+         });
+}
+
+    function toggleSubAccountSection() {
+      if ($('select[name="account_type"]').find(':selected').data('child') == 0 || $('select[name="account_type"]').val() == 4) {
+        $('#subaccount').hide();
+      } else {
+        $('#subaccount').show();
+      }
+    }
+
+
+
+function toggleSubAccountCheckbox() {
+  if ($('#is_sub_account').is(":checked")) {
+        $('#paccount').show();
+  } else {
+        $('#paccount').hide();
+  }
+}

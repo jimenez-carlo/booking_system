@@ -103,8 +103,11 @@
             <li>
               <a href="#" name="admin_customer_list" class="nav-link sidebar-btn"><i class="fa fa-users fa-fw"></i> Manage Customers List</a>
             </li>
+            <!-- <li>
+              <a href="#" name="admin_customer_list2" class="nav-link sidebar-btn"><i class="fa fa-users fa-fw"></i> Manage Customers List</a>
+            </li> -->
             <li>
-              <a href="#" name="manage_chart_accounts" class="nav-link sidebar-btn"><i class="fa fa-bar-chart-o fa-fw"></i> Manage Chart of Accounts</a>
+              <a href="#" name="admin_account_list" class="nav-link sidebar-btn"><i class="fa fa-users fa-fw"></i> Manage Chart of Accounts</a>
             </li>
             <li>
               <a href="#" class="nav-link sidebar-btn"><i class="fa fa-files-o fa-fw"></i> Generate Reports<span class="fa arrow"></span></a>

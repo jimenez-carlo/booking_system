@@ -1,6 +1,7 @@
 <?php
 require('../database/connection.php');
 require_once('../class/base.php');
+require_once('../class/account.php');
 require_once('../class/user.php');
 require_once('../class/customer.php');
 require_once('../class/invoice.php');
@@ -17,6 +18,7 @@ if (!$_POST || !isset($_POST['form'])) {
 
 $form = $_POST['form'];
 $base_instance = new Base($conn);
+$account_instance = new Account($conn);
 $user_instance = new User($conn);
 $customer_instance = new Customer($conn);
 $invoice = new Invoice($conn);
@@ -37,7 +39,12 @@ switch ($form) {
     $result = $disbursement->create();
     break;
     // Customer
-  case 'create_customer':
+  case 'create_account':
+    $result = $account_instance->create();
+    break;
+  case 'edit_account':
+    $result = $account_instance->update();
+    break;
   case 'create_customer':
     $result = $customer_instance->create();
     break;

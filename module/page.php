@@ -27,6 +27,9 @@ if (in_array($page, $pages)) {
     case 'admin_customer_list':
       $data['customers'] = $request->get_list("select g.gender,UPPER(cc.name) as 'company',UPPER(a.name) as 'access',ui.*,u.*,p.name as province,c.name as city,b.name as barangay from tbl_customers u inner join tbl_customers_info ui on ui.id = u.id inner join tbl_access a on a.id = u.access_id inner join tbl_gender g on g.id = ui.gender_id and u.is_deleted = 0 left join tbl_province p on p.id = ui.province left join tbl_city c on c.id = ui.city left join tbl_barangay b on b.id = ui.barangay inner join tbl_company cc on cc.id = u.company_id ");
       break;
+    case 'admin_customer_list2':
+      $data['customers'] = $request->get_list("select g.gender,UPPER(cc.name) as 'company',UPPER(a.name) as 'access',ui.*,u.*,p.name as province,c.name as city,b.name as barangay from tbl_customers u inner join tbl_customers_info ui on ui.id = u.id inner join tbl_access a on a.id = u.access_id inner join tbl_gender g on g.id = ui.gender_id and u.is_deleted = 0 left join tbl_province p on p.id = ui.province left join tbl_city c on c.id = ui.city left join tbl_barangay b on b.id = ui.barangay inner join tbl_company cc on cc.id = u.company_id ");
+      break;
     case 'admin_customer_create':
       $data['gender'] = $request->get_gender();
       $data['province'] = $request->get_province();
@@ -45,7 +48,7 @@ if (in_array($page, $pages)) {
 
       $data['payment_history'] = $request->get_list("select p.*,c.name as company from tbl_invoice_payment p left join tbl_company c on c.id = p.company_id where p.customer_id = $id and p.is_deleted = 0");
       $data['disbursement_history'] = $request->get_list("select t.*,c.name as company from tbl_invoice_transaction t left join tbl_company c on c.id = t.company_id where t.customer_id = $id and t.is_deleted = 0 and t.reference_type = 'disbursement'");
-      $data['invoice_history'] = $request->get_list("SELECT  t.due_date,sum(if(ti.reference_type ='profit', IFNULL(ti.amount,0), 0)) - (sum(if(ti.reference_type ='expense', IFNULL(ti.amount,0), 0)) + sum(IFNULL(tx.amount,0)))   as invoice_total,  sum(IFNULL(p.amount,0)) as payment_total,ti.*,c.name,t.id as company FROM tbl_invoice t left join tbl_invoice_transaction ti on ti.invoice = t.invoice left join tbl_company c on c.id = ti.company_id left join tbl_invoice_payment p on p.invoice = t.invoice left join tbl_invoice_tax tx on tx.invoice = t.invoice where ti.reference_type <> 'disbursement' and ti.customer_id = $id and t.is_deleted = 0 group by t.invoice,ti.company_id");
+      $data['invoice_history'] = $request->get_list("SELECT  t.due_date,sum(if(ti.reference_type ='profit', IFNULL(ti.amount,0), 0)) - (sum(if(ti.reference_type ='expense', IFNULL(ti.amount,0), 0)) + sum(IFNULL(tx.amount,0)))   as invoice_total,  sum(IFNULL(p.amount,0)) as payment_total,ti.*,c.name as company,t.id FROM tbl_invoice t left join tbl_invoice_transaction ti on ti.invoice = t.invoice left join tbl_company c on c.id = ti.company_id left join tbl_invoice_payment p on p.invoice = t.invoice left join tbl_invoice_tax tx on tx.invoice = t.invoice where ti.reference_type <> 'disbursement' and ti.customer_id = $id and t.is_deleted = 0 group by t.invoice,ti.company_id");
       break;
     case 'admin_form_create':
       $data['customers'] = $request->get_list("select ui.* from tbl_customers u inner join tbl_customers_info ui on ui.id = u.id inner join tbl_access a on a.id = u.access_id where u.is_deleted = 0");
@@ -53,6 +56,20 @@ if (in_array($page, $pages)) {
       $data['company'] = $request->get_company();
       break;
 
+
+    case 'admin_account_list':
+      $data['accounts'] = $request->get_list("SELECT x.id,x.parent_account_id,x.account_name,x.account_code,x.account_no,y.name as account_type,z.account_name as parent_name, x.is_deletable,x.is_deleted FROM tbl_account x inner join tbl_account_type y on (x.account_type_id = y.id and y.is_deleted = 0) left join tbl_account z on (z.id = x.parent_account_id and z.is_deleted = 0) where x.is_deleted = 0 order by x.created_date desc");
+      break;
+    case 'admin_account_create':
+      $data['account_type'] = $request->get_list("SELECT x.*,y.name as parent_name,count(z.account_type_id) as child from tbl_account_type x inner join tbl_account_type_category y on (y.id = x.account_type_category_id and y.is_deleted = 0) left join tbl_account z on z.account_type_id = x.id where x.is_deleted = 0 group by x.id order by x.account_type_category_id,x.order_index");
+      $data['currency'] = $request->get_list("select * from tbl_currency where is_deleted = 0");
+      break;
+
+    case 'admin_account_edit':
+      $data['account_type'] = $request->get_list("SELECT x.*,y.name as parent_name,count(z.account_type_id) as child from tbl_account_type x inner join tbl_account_type_category y on (y.id = x.account_type_category_id and y.is_deleted = 0) left join tbl_account z on z.account_type_id = x.id where x.is_deleted = 0 group by x.id order by x.account_type_category_id,x.order_index");
+      $data['info'] = $request->get_one("SELECT * from tbl_account where id = $id");
+      $data['currency'] = $request->get_list("select * from tbl_currency where is_deleted = 0");
+      break;
 
     case 'customer_register':
       $data['gender_list'] = $request->get_list("select id,UPPER(gender) as 'gender' from tbl_gender");
