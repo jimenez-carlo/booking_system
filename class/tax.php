@@ -76,7 +76,7 @@ class Tax extends Base
       return $result;
     }
 
-    $check_name = $this->get_one("select count(`name`) as `exists` from tbl_account where `name` = '$account_name' and id <> '$id' and is_deleted = 0 group by name limit 1");
+    $check_name = $this->get_one("select count(`name`) as `exists` from tbl_tax where `name` = '$tax_name' and id <> '$id' and is_deleted = 0 group by name limit 1");
 
     if (isset($check_name->exists) && !empty($check_name->exists)) {
       $errors[] = 'tax_name';

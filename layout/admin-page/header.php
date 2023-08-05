@@ -88,7 +88,7 @@
           <ul class="nav" id="side-menu">
             <li class="sidebar-search">
               <div class="input-group custom-search-form">
-                <input type="text" class="form-control" placeholder="Search...">
+                <input type="text" class="form-control" placeholder="Search..." id="menu_search">
                 <span class="input-group-btn">
                   <button class="btn btn-primary" type="button">
                     <i class="fa fa-search"></i>
@@ -99,9 +99,10 @@
             </li>
             <!-- <li><a href="#" name="admin_customer_list2" class="nav-link sidebar-btn"><i class="fa fa-users fa-fw"></i> Manage Customers List</a></li> -->
             <li><a href="." class=" nav-link sidebar-btn active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
-            <li><a href="#" name="admin_customer_list" class="nav-link sidebar-btn"><i class="fa fa-users fa-fw"></i> Manage Customers List</a></li>
+            <li><a href="#" name="admin_bank_list" class="nav-link sidebar-btn"><i class="fa fa-bank fa-fw"></i> Banking</a></li>
+            <li><a href="#" name="admin_customer_list" class="nav-link sidebar-btn"><i class="fa fa-users fa-fw"></i> Customers List</a></li>
+            <li><a href="#" name="admin_account_list" class="nav-link sidebar-btn"><i class="fa fa-users fa-fw"></i> Chart of Accounts</a></li>
             <li><a href="#" name="admin_tax_list" class="nav-link sidebar-btn"><i class="fa fa-percent fa-fw"></i> Tax List</a></li>
-            <li><a href="#" name="admin_account_list" class="nav-link sidebar-btn"><i class="fa fa-users fa-fw"></i> Manage Chart of Accounts</a></li>
             <li>
               <a href="#" class="nav-link sidebar-btn"><i class="fa fa-files-o fa-fw"></i> Generate Reports<span class="fa arrow"></span></a>
               <ul class="nav nav-second-level">

@@ -105,3 +105,23 @@ function toggleSubAccountCheckbox() {
         $('#paccount').hide();
   }
 }
+
+$('#menu_search').on('input', function () {
+  let text = $(this).val();
+  let list = document.querySelectorAll("#side-menu>li:not(.sidebar-search)");
+  
+  if (text == '') {
+    list.forEach(element => {
+      $(element).show();
+    });
+  } else {
+    list.forEach(element => {
+      console.log();
+      if (!($(element).children()[0].innerText).toUpperCase().includes(text.toUpperCase())) {
+        $(element).hide();
+      } else {
+        $(element).show();
+      }
+    });
+  }
+ });

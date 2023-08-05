@@ -8,7 +8,7 @@
     <div class="result"></div>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_customer_create"> Add <i class="fa fa-plus"></i> </button>
+        <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_customer_create"> Create Customer <i class="fa fa-user-plus"></i> </button>
         <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_form_create"> Create Transaction <i class="fa fa-plus"></i> </button>
       </div>
       <!-- /.panel-heading -->

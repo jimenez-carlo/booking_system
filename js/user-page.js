@@ -57,7 +57,7 @@ $(document).on("submit", 'form', function (e) {
     window.location.href = base_url+'module/logout.php';
   }
   
-  if (this.getAttribute('confirm') != 'undefined') {
+  if (this.hasAttribute('confirm')) {
     
     Swal.fire({
   title: 'Are you sure?',
@@ -66,7 +66,7 @@ $(document).on("submit", 'form', function (e) {
   showCancelButton: true,
   confirmButtonColor: '#3085d6',
   cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, delete it!'
+  confirmButtonText: 'Confirm'
 }).then((result) => {
   if (result.isConfirmed) {
       formdata = new FormData(this);
