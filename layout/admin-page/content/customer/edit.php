@@ -249,7 +249,8 @@
     if (!$.fn.DataTable.isDataTable('#customer_payments_history')) {
       $('#customer_payments_history').DataTable({
         dom: '<"custom_bar"<"flex"lB>f>rtip',
-        buttons: [{
+        "aaSorting": [],
+buttons: [{
           extend: 'copy',
           text: 'Copy <i class="fa fa-clipboard" aria-hidden="true"></i>',
           className: 'btn btn-sm btn-primary'
@@ -271,7 +272,8 @@
     if (!$.fn.DataTable.isDataTable('#customer_disbursement_history')) {
       $('#customer_disbursement_history').DataTable({
         dom: '<"custom_bar"<"flex"lB>f>rtip',
-        buttons: [{
+        "aaSorting": [],
+buttons: [{
           extend: 'copy',
           text: 'Copy <i class="fa fa-clipboard" aria-hidden="true"></i>',
           className: 'btn btn-sm btn-primary'
@@ -293,7 +295,8 @@
     if (!$.fn.DataTable.isDataTable('#customer_invoice_history')) {
       $('#customer_invoice_history').DataTable({
         dom: '<"custom_bar"<"flex"lB>f>rtip',
-        buttons: [{
+        "aaSorting": [],
+buttons: [{
           extend: 'copy',
           text: 'Copy <i class="fa fa-clipboard" aria-hidden="true"></i>',
           className: 'btn btn-sm btn-primary'

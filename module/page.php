@@ -64,11 +64,17 @@ if (in_array($page, $pages)) {
       $data['account_type'] = $request->get_list("SELECT x.*,y.name as parent_name,count(z.account_type_id) as child from tbl_account_type x inner join tbl_account_type_category y on (y.id = x.account_type_category_id and y.is_deleted = 0) left join tbl_account z on z.account_type_id = x.id where x.is_deleted = 0 group by x.id order by x.account_type_category_id,x.order_index");
       $data['currency'] = $request->get_list("select * from tbl_currency where is_deleted = 0");
       break;
-
     case 'admin_account_edit':
       $data['account_type'] = $request->get_list("SELECT x.*,y.name as parent_name,count(z.account_type_id) as child from tbl_account_type x inner join tbl_account_type_category y on (y.id = x.account_type_category_id and y.is_deleted = 0) left join tbl_account z on z.account_type_id = x.id where x.is_deleted = 0 group by x.id order by x.account_type_category_id,x.order_index");
       $data['info'] = $request->get_one("SELECT * from tbl_account where id = $id");
       $data['currency'] = $request->get_list("select * from tbl_currency where is_deleted = 0");
+      break;
+
+    case 'admin_tax_list':
+      $data['taxes'] = $request->get_list("SELECT * FROM tbl_tax x where x.is_deleted = 0 order by x.rate asc");
+      break;
+    case 'admin_tax_edit':
+      $data['info'] = $request->get_one("SELECT * from tbl_tax where id = $id");
       break;
 
     case 'customer_register':

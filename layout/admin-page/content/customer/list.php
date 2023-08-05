@@ -5,6 +5,7 @@
 </div>
 <div class="row">
   <div class="col-lg-12">
+    <div class="result"></div>
     <div class="panel panel-default">
       <div class="panel-heading">
         <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_customer_create"> Add <i class="fa fa-plus"></i> </button>
@@ -40,7 +41,12 @@
                   <td><?= $res['province'] ?></td>
                   <td><?= $res['city'] ?></td>
                   <td><?= $res['barangay'] ?></td>
-                  <td><button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_customer_edit" value="<?= $res['id'] ?>"> Edit <i class="fa fa-edit"></i> </button></td>
+                  <td>
+                    <form method="post" name="delete_customer" refresh="admin_customer_list" confirm>
+                      <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_customer_edit" value="<?= $res['id'] ?>"> Edit <i class="fa fa-edit"></i> </button>
+                      <button type="submit" class="btn btn-sm btn-primary" name="id" value="<?= $res['id'] ?>"> Delete <i class="fa fa-trash"></i> </button>
+                    </form>
+                  </td>
                 </tr>
               <?php } ?>
 
@@ -60,6 +66,7 @@
     if (!$.fn.DataTable.isDataTable('#dataTables-example')) {
       $('#dataTables-example').DataTable({
         dom: '<"custom_bar"<"flex"lB>f>rtip',
+        "aaSorting": [],
         buttons: [{
           extend: 'copy',
           text: 'Copy <i class="fa fa-clipboard" aria-hidden="true"></i>',

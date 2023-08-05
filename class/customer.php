@@ -117,4 +117,15 @@ class Customer extends Base
     }
     return $result;
   }
+
+  public function delete()
+  {
+    extract($this->escape_data($_POST));
+    $result = def_response();
+
+    $this->query("update tbl_customers set is_deleted = 1  where id = $id");
+    $result->status = true;
+    $result->result = success_msg("Customer Deleted!");
+    return $result;
+  }
 }

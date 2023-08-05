@@ -33,6 +33,9 @@ if (!function_exists('get_access')) {
           'admin_account_list',
           'admin_account_create',
           'admin_account_edit',
+          'admin_tax_list',
+          'admin_tax_create',
+          'admin_tax_edit',
           'admin_form_create',
           'admin_form_edit',
         );
@@ -66,6 +69,13 @@ if (!function_exists('page_url')) {
         return '../layout/admin-page/content/account/create.php';
       case 'admin_account_edit':
         return '../layout/admin-page/content/account/edit.php';
+
+      case 'admin_tax_list':
+        return '../layout/admin-page/content/tax/list.php';
+      case 'admin_tax_create':
+        return '../layout/admin-page/content/tax/create.php';
+      case 'admin_tax_edit':
+        return '../layout/admin-page/content/tax/edit.php';
 
 
       case 'admin_form_create':

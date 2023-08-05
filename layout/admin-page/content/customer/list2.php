@@ -83,7 +83,8 @@
     if (!$.fn.DataTable.isDataTable('#dataTables-example')) {
       $('#dataTables-example').DataTable({
         dom: '<"custom_bar"<"flex"lB>f>rtip',
-        buttons: [{
+        "aaSorting": [],
+buttons: [{
           extend: 'copy',
           text: 'Copy <i class="fa fa-clipboard" aria-hidden="true"></i>',
           className: 'btn btn-sm btn-primary'

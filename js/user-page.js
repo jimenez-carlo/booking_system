@@ -57,6 +57,30 @@ $(document).on("submit", 'form', function (e) {
     window.location.href = base_url+'module/logout.php';
   }
   
+  if (this.getAttribute('confirm') != 'undefined') {
+    
+    Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+      formdata = new FormData(this);
+  console.log(form_name);
+  formdata.append('form', form_name);
+  formdata.append(type, type_value);
+
+  let submit_btn = $(e.originalEvent.submitter);
+  let refresh = $(this).attr('refresh');
+  request(submit_btn, form_name, formdata, refresh);
+  }
+})
+  } else {
+  
   formdata = new FormData(this);
   console.log(form_name);
   formdata.append('form', form_name);
@@ -65,6 +89,8 @@ $(document).on("submit", 'form', function (e) {
   let submit_btn = $(e.originalEvent.submitter);
   let refresh = $(this).attr('refresh');
   request(submit_btn, form_name, formdata, refresh);
+  }
+  
   
   // $.ajax({
   //   method: "POST",
@@ -129,4 +155,19 @@ function request(submit_btn,form_name,formdata, refresh ='') {
 }
 
 
+function logout() {
+    Swal.fire({
+  title: 'Are you sure?',
+  text: "You Are About To Logout Continue?",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Logout'
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location.href = 'module/logout.php';
+  }
+})
 
+}

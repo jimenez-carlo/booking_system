@@ -90,7 +90,7 @@
                 <label><span style="color:red">*</span>Currency</label>
                 <select class="form-control select2" name="currency" id="currency">
                   <?php foreach ($currency as $res) { ?>
-                    <option value="<?= $res['id'] ?>"><?= $res['code'] ?></option>
+                    <option value="<?= $res['id'] ?>" <?= $res['id'] == 9 ? 'selected' : "" ?>><?= $res['code'] ?></option>
                   <?php } ?>
                 </select>
               </div>
