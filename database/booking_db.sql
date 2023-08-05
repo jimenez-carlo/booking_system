@@ -62,7 +62,7 @@ CREATE TABLE `tbl_account` (
   `created_date` datetime DEFAULT current_timestamp(),
   `is_deletable` tinyint(1) DEFAULT 1,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +71,7 @@ CREATE TABLE `tbl_account` (
 
 LOCK TABLES `tbl_account` WRITE;
 /*!40000 ALTER TABLE `tbl_account` DISABLE KEYS */;
-INSERT INTO `tbl_account` VALUES (1,0,2,'Advance Tax',NULL,NULL,NULL,NULL,1,1,0,NULL,'2023-07-30 05:32:06',0),(2,0,2,'Employee Advance',NULL,NULL,NULL,NULL,1,2,0,NULL,'2023-07-30 05:32:06',0),(3,0,2,'Prepaid Expense',NULL,NULL,NULL,NULL,1,3,0,NULL,'2023-07-30 05:32:06',0),(4,0,3,'Petty Cash',NULL,NULL,NULL,NULL,1,1,0,NULL,'2023-07-30 05:33:22',0),(5,0,3,'Undeposited Funds',NULL,NULL,NULL,NULL,1,2,0,NULL,'2023-07-30 05:33:22',0),(6,0,5,'Furniture and Equipment',NULL,NULL,NULL,NULL,1,1,0,NULL,'2023-07-30 05:33:22',0),(7,0,8,'Employee Reimbursement',NULL,NULL,NULL,NULL,1,1,0,NULL,'2023-07-30 05:34:15',0),(8,0,14,'Drawings',NULL,NULL,NULL,NULL,1,1,0,NULL,'2023-07-30 05:39:21',0),(9,0,14,'Openning Balance Offset',NULL,NULL,NULL,NULL,1,2,0,NULL,'2023-07-30 05:39:21',0),(10,0,14,'Owners Equity',NULL,NULL,NULL,NULL,1,3,0,NULL,'2023-07-30 05:39:21',0),(11,0,15,'General Income',NULL,NULL,NULL,NULL,1,1,0,NULL,'2023-07-30 05:39:21',0),(12,0,15,'Interest Income',NULL,NULL,NULL,NULL,1,2,0,NULL,'2023-07-30 05:39:21',0),(13,0,15,'Sales',NULL,NULL,NULL,NULL,1,3,0,NULL,'2023-07-30 05:39:21',0),(14,0,17,'Advertising and Marketing',NULL,NULL,NULL,NULL,1,1,0,NULL,'2023-07-30 05:39:21',0),(15,0,17,'Automobile Expenses',NULL,NULL,NULL,NULL,1,2,0,NULL,'2023-07-30 05:39:21',0),(16,0,17,'Consultant Expense',NULL,NULL,NULL,NULL,1,3,0,NULL,'2023-07-30 05:39:21',0),(17,0,17,'Credit Card Charges',NULL,NULL,NULL,NULL,1,4,0,NULL,'2023-07-30 05:39:21',0),(18,0,17,'Depreciation Expense',NULL,NULL,NULL,NULL,1,5,0,NULL,'2023-07-30 05:39:21',0),(19,0,17,'IT and Internet Expenses',NULL,NULL,NULL,NULL,1,6,0,NULL,'2023-07-30 05:39:21',0),(20,0,17,'Janitorial Expenses',NULL,NULL,NULL,NULL,1,7,0,NULL,'2023-07-30 05:39:21',0),(21,0,17,'Lodging',NULL,NULL,NULL,NULL,1,8,0,NULL,'2023-07-30 05:39:21',0),(22,0,17,'Meals and Entertainment',NULL,NULL,NULL,NULL,1,9,0,NULL,'2023-07-30 05:39:21',0),(23,0,17,'Office Supplies',NULL,NULL,NULL,NULL,1,10,0,NULL,'2023-07-30 05:39:21',0),(24,0,17,'Other Expenses',NULL,NULL,NULL,NULL,1,11,0,NULL,'2023-07-30 05:39:21',0),(25,0,17,'Postage',NULL,NULL,NULL,NULL,1,12,0,NULL,'2023-07-30 05:39:21',0),(26,0,17,'Printing and Stationery',NULL,NULL,NULL,NULL,1,13,0,NULL,'2023-07-30 05:39:21',0),(27,0,17,'Rent Expenses',NULL,NULL,NULL,NULL,1,14,0,NULL,'2023-07-30 05:39:21',0),(28,0,17,'Repairs and Maintenance',NULL,NULL,NULL,NULL,1,15,0,NULL,'2023-07-30 05:39:21',0),(29,0,17,'Telephone Expenses',NULL,NULL,NULL,NULL,1,16,0,NULL,'2023-07-30 05:39:21',0),(30,0,17,'Travel Expenses',NULL,NULL,NULL,NULL,1,17,0,NULL,'2023-07-30 05:39:21',0),(31,0,18,'Cost of Goods Sold',NULL,NULL,NULL,NULL,1,1,0,NULL,'2023-07-30 05:40:12',0),(32,0,9,'testing','test','123',0,'',1,NULL,0,1,'2023-08-05 21:02:30',1),(33,0,1,'test','test','123',1,'',0,NULL,0,1,'2023-08-05 21:03:49',1);
+INSERT INTO `tbl_account` VALUES (1,0,2,'Advance Tax',NULL,NULL,9,NULL,1,1,0,NULL,'2023-07-30 05:32:06',0),(2,0,2,'Employee Advance',NULL,NULL,9,NULL,1,2,0,NULL,'2023-07-30 05:32:06',0),(3,0,2,'Prepaid Expense',NULL,NULL,9,NULL,1,3,0,NULL,'2023-07-30 05:32:06',0),(4,0,3,'Petty Cash',NULL,NULL,9,NULL,1,1,0,NULL,'2023-07-30 05:33:22',0),(5,0,3,'Undeposited Funds',NULL,NULL,9,NULL,1,2,0,NULL,'2023-07-30 05:33:22',0),(6,0,5,'Furniture and Equipment',NULL,NULL,9,NULL,1,1,0,NULL,'2023-07-30 05:33:22',0),(7,0,8,'Employee Reimbursement',NULL,NULL,9,NULL,1,1,0,NULL,'2023-07-30 05:34:15',0),(8,0,14,'Drawings',NULL,NULL,9,NULL,1,1,0,NULL,'2023-07-30 05:39:21',0),(9,0,14,'Openning Balance Offset',NULL,NULL,9,NULL,1,2,0,NULL,'2023-07-30 05:39:21',0),(10,0,14,'Owners Equity',NULL,NULL,9,NULL,1,3,0,NULL,'2023-07-30 05:39:21',0),(11,0,15,'General Income',NULL,NULL,9,NULL,1,1,0,NULL,'2023-07-30 05:39:21',0),(12,0,15,'Interest Income',NULL,NULL,9,NULL,1,2,0,NULL,'2023-07-30 05:39:21',0),(13,0,15,'Sales',NULL,NULL,9,NULL,1,3,0,NULL,'2023-07-30 05:39:21',0),(14,0,17,'Advertising and Marketing',NULL,NULL,9,NULL,1,1,0,NULL,'2023-07-30 05:39:21',0),(15,0,17,'Automobile Expenses',NULL,NULL,9,NULL,1,2,0,NULL,'2023-07-30 05:39:21',0),(16,0,17,'Consultant Expense',NULL,NULL,9,NULL,1,3,0,NULL,'2023-07-30 05:39:21',0),(17,0,17,'Credit Card Charges',NULL,NULL,9,NULL,1,4,0,NULL,'2023-07-30 05:39:21',0),(18,0,17,'Depreciation Expense',NULL,NULL,9,NULL,1,5,0,NULL,'2023-07-30 05:39:21',0),(19,0,17,'IT and Internet Expenses',NULL,NULL,9,NULL,1,6,0,NULL,'2023-07-30 05:39:21',0),(20,0,17,'Janitorial Expenses',NULL,NULL,9,NULL,1,7,0,NULL,'2023-07-30 05:39:21',0),(21,0,17,'Lodging',NULL,NULL,9,NULL,1,8,0,NULL,'2023-07-30 05:39:21',0),(22,0,17,'Meals and Entertainment',NULL,NULL,9,NULL,1,9,0,NULL,'2023-07-30 05:39:21',0),(23,0,17,'Office Supplies',NULL,NULL,9,NULL,1,10,0,NULL,'2023-07-30 05:39:21',0),(24,0,17,'Other Expenses',NULL,NULL,9,NULL,1,11,0,NULL,'2023-07-30 05:39:21',0),(25,0,17,'Postage',NULL,NULL,9,NULL,1,12,0,NULL,'2023-07-30 05:39:21',0),(26,0,17,'Printing and Stationery',NULL,NULL,9,NULL,1,13,0,NULL,'2023-07-30 05:39:21',0),(27,0,17,'Rent Expenses',NULL,NULL,9,NULL,1,14,0,NULL,'2023-07-30 05:39:21',0),(28,0,17,'Repairs and Maintenance',NULL,NULL,9,NULL,1,15,0,NULL,'2023-07-30 05:39:21',0),(29,0,17,'Telephone Expenses',NULL,NULL,9,NULL,1,16,0,NULL,'2023-07-30 05:39:21',0),(30,0,17,'Travel Expenses',NULL,NULL,9,NULL,1,17,0,NULL,'2023-07-30 05:39:21',0),(31,0,18,'Cost of Goods Sold',NULL,NULL,9,NULL,1,1,0,NULL,'2023-07-30 05:40:12',0),(32,0,9,'testing','test','123',9,'',1,NULL,1,1,'2023-08-05 21:02:30',1),(33,0,1,'test','test','123',1,'',0,NULL,1,1,'2023-08-05 21:03:49',1),(34,0,1,'test','test','test',9,'',0,NULL,1,1,'2023-08-05 23:56:53',1),(35,0,4,'My China Bank','CBC','1470000000',9,'my personal savings account',0,NULL,0,1,'2023-08-06 01:36:43',1),(36,0,9,'My Paymaya','MAYA','1890000000',9,'my pay maya account',0,NULL,0,1,'2023-08-06 01:54:18',1);
 /*!40000 ALTER TABLE `tbl_account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -316,6 +316,29 @@ INSERT INTO `tbl_company` VALUES (1,'NONE','2023-06-14 21:49:52',NULL,NULL),(2,'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tbl_config`
+--
+
+DROP TABLE IF EXISTS `tbl_config`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_config` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `default_currency` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_config`
+--
+
+LOCK TABLES `tbl_config` WRITE;
+/*!40000 ALTER TABLE `tbl_config` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbl_config` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tbl_currency`
 --
 
@@ -345,6 +368,30 @@ INSERT INTO `tbl_currency` VALUES (1,'AED','AED- UAE Dirham','AED',0,NULL,'2023-
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tbl_customer_type`
+--
+
+DROP TABLE IF EXISTS `tbl_customer_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_customer_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_customer_type`
+--
+
+LOCK TABLES `tbl_customer_type` WRITE;
+/*!40000 ALTER TABLE `tbl_customer_type` DISABLE KEYS */;
+INSERT INTO `tbl_customer_type` VALUES (1,'Individual'),(2,'Business');
+/*!40000 ALTER TABLE `tbl_customer_type` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tbl_customers`
 --
 
@@ -361,6 +408,9 @@ CREATE TABLE `tbl_customers` (
   `date_created` datetime DEFAULT current_timestamp(),
   `is_deleted` int(11) DEFAULT 0,
   `created_by` int(11) DEFAULT NULL,
+  `salutation_id` int(11) DEFAULT 1,
+  `customer_type_id` int(11) DEFAULT 1,
+  `remarks` text DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -371,7 +421,7 @@ CREATE TABLE `tbl_customers` (
 
 LOCK TABLES `tbl_customers` WRITE;
 /*!40000 ALTER TABLE `tbl_customers` DISABLE KEYS */;
-INSERT INTO `tbl_customers` VALUES (1,0,NULL,NULL,NULL,3,'2023-05-05 13:23:34',0,1),(47,1,NULL,NULL,'jimenez.carlo.llabor@gmail.com',3,'2023-05-05 13:23:34',0,1),(48,1,NULL,NULL,'jimenez.carlo.llabor@gmail.com',3,'2023-05-05 13:41:00',0,1),(49,2,NULL,NULL,'carlo@wonderlabs.io',3,'2023-06-28 04:31:19',0,1),(50,2,NULL,NULL,'carlo@wonderlabs.io',3,'2023-06-28 04:32:02',0,1),(51,2,NULL,NULL,'carlo@wonderlabs.io',3,'2023-06-28 04:32:17',0,1);
+INSERT INTO `tbl_customers` VALUES (1,0,NULL,NULL,NULL,3,'2023-05-05 13:23:34',0,1,1,1,NULL),(47,1,NULL,NULL,'jimenez.carlo.llabor@gmail.com',3,'2023-05-05 13:23:34',0,1,1,1,NULL),(48,1,NULL,NULL,'jimenez.carlo.llabor@gmail.com',3,'2023-05-05 13:41:00',0,1,1,1,NULL),(49,2,NULL,NULL,'carlo@wonderlabs.io',3,'2023-06-28 04:31:19',0,1,1,1,NULL),(50,2,NULL,NULL,'carlo@wonderlabs.io',3,'2023-06-28 04:32:02',0,1,1,1,NULL),(51,2,NULL,NULL,'carlo@wonderlabs.io',3,'2023-06-28 04:32:17',0,1,1,1,NULL);
 /*!40000 ALTER TABLE `tbl_customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -610,6 +660,30 @@ INSERT INTO `tbl_province` VALUES ('ILOCOS NORTE','0128'),('ILOCOS SUR','0129'),
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tbl_salutation`
+--
+
+DROP TABLE IF EXISTS `tbl_salutation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_salutation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_salutation`
+--
+
+LOCK TABLES `tbl_salutation` WRITE;
+/*!40000 ALTER TABLE `tbl_salutation` DISABLE KEYS */;
+INSERT INTO `tbl_salutation` VALUES (1,''),(2,'Mr.'),(3,'Mrs.'),(4,'Ms.'),(5,'Miss'),(6,'Dr.');
+/*!40000 ALTER TABLE `tbl_salutation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tbl_status`
 --
 
@@ -631,6 +705,35 @@ LOCK TABLES `tbl_status` WRITE;
 /*!40000 ALTER TABLE `tbl_status` DISABLE KEYS */;
 INSERT INTO `tbl_status` VALUES (1,'draft'),(2,'order placed'),(3,'approved'),(4,'order shipped'),(5,'cancelled'),(6,'rejected'),(7,'received'),(8,'delivered');
 /*!40000 ALTER TABLE `tbl_status` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_tax`
+--
+
+DROP TABLE IF EXISTS `tbl_tax`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_tax` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `rate` int(11) DEFAULT NULL,
+  `is_deleted` tinyint(1) DEFAULT 0,
+  `is_deletable` tinyint(1) DEFAULT 1,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_tax`
+--
+
+LOCK TABLES `tbl_tax` WRITE;
+/*!40000 ALTER TABLE `tbl_tax` DISABLE KEYS */;
+INSERT INTO `tbl_tax` VALUES (1,'N/A',0,0,0,NULL,'2023-08-05 23:27:27'),(2,'Income Tax',20,0,1,NULL,'2023-08-05 23:27:27'),(3,'Estate Tax',6,0,1,NULL,'2023-08-05 23:27:27'),(4,'Capital Gains Tax',15,0,1,NULL,'2023-08-05 23:27:27'),(5,'Value Added Tax (VAT)',12,0,1,NULL,'2023-08-05 23:27:27'),(6,'Withholding Tax',15,0,1,NULL,'2023-08-05 23:27:27'),(8,'test',55,1,1,1,'2023-08-05 23:46:01');
+/*!40000 ALTER TABLE `tbl_tax` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -728,4 +831,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-05 21:39:44
+-- Dump completed on 2023-08-06  1:56:38

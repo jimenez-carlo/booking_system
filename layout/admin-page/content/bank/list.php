@@ -1,6 +1,13 @@
+<?php
+$type = [
+  3 => 'fa-money',
+  4 => 'fa-bank',
+  9 => 'fa-credit-card'
+];
+?>
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header"><i class="fa fa-users"></i> Banking</h1>
+    <h1 class="page-header"><i class="fa fa-bank"></i> Banking</h1>
   </div>
 </div>
 <div class="row">
@@ -8,7 +15,7 @@
     <div class="result"></div>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_account_create"> Create Account <i class="fa fa-plus"></i> </button>
+        <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_account_create"> Add Credit Card/Bank <i class="fa fa-plus"></i> </button>
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
@@ -20,18 +27,18 @@
                 <th style="width: 0.1%;white-space:nowrap">Account Code</th>
                 <th>Account No.</th>
                 <th>Account Type</th>
-                <th>Parent Account</th>
+                <th>Balance</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($accounts as $res) { ?>
+              <?php foreach ($banks as $res) { ?>
                 <tr class="gradeX">
-                  <td><?= $res['account_name'] ?></td>
+                  <td><button class="btn btn-sm btn-default" disabled><i class="fa <?= $type[$res['account_type_id']] ?>"></i></button> <?= $res['account_name'] ?></td>
                   <td><?= $res['account_code'] ?></td>
                   <td><?= $res['account_no'] ?></td>
                   <td><?= ucwords(strtolower($res['account_type'])) ?></td>
-                  <td><?= $res['parent_name'] ?></td>
+                  <td class="text-right"><?= $res['symbol'] . ' ' . number_format(0, 2) ?></td>
                   <td>
                     <form method="post" name="delete_account" refresh="admin_account_list" confirm>
                       <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_account_edit" value="<?= $res['id'] ?>"> Edit <i class="fa fa-edit"></i> </button>

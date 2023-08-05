@@ -77,6 +77,13 @@ if (in_array($page, $pages)) {
       $data['info'] = $request->get_one("SELECT * from tbl_tax where id = $id");
       break;
 
+    case 'admin_bank_list':
+      $data['banks'] = $request->get_list("SELECT x.id,x.parent_account_id,x.account_name,x.account_code,x.account_no,x.account_type_id,c.symbol,y.name as account_type,z.account_name as parent_name, x.is_deletable,x.is_deleted FROM tbl_account x inner join tbl_account_type y on (x.account_type_id = y.id and y.is_deleted = 0) left join tbl_account z on (z.id = x.parent_account_id and z.is_deleted = 0) inner join tbl_currency c on (c.id = x.currency_id and c.is_deleted = 0) where x.is_deleted = 0 and x.account_type_id in (3,4,9) order by x.created_date desc");
+      break;
+    case 'admin_bank_edit':
+      $data['info'] = $request->get_one("SELECT * from tbl_account where id = $id");
+      break;
+
     case 'customer_register':
       $data['gender_list'] = $request->get_list("select id,UPPER(gender) as 'gender' from tbl_gender");
       break;

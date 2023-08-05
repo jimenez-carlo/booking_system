@@ -104,7 +104,7 @@
             <li><a href="#" name="admin_account_list" class="nav-link sidebar-btn"><i class="fa fa-users fa-fw"></i> Chart of Accounts</a></li>
             <li><a href="#" name="admin_tax_list" class="nav-link sidebar-btn"><i class="fa fa-percent fa-fw"></i> Tax List</a></li>
             <li>
-              <a href="#" class="nav-link sidebar-btn"><i class="fa fa-files-o fa-fw"></i> Generate Reports<span class="fa arrow"></span></a>
+              <a href="#" class="nav-link"><i class="fa fa-files-o fa-fw"></i> Generate Reports<span class="fa arrow"></span></a>
               <ul class="nav nav-second-level">
                 <li><a href="#" name="profit_loss" class="nav-link sidebar-btn"><i class="fa fa-file fa-fw"></i> Profit/Loss</a></li>
                 <li><a href="#" name="customer_statement_of_account" class="nav-link sidebar-btn"><i class="fa fa-file fa-fw"></i> Customer Statement of Account</a></li>
