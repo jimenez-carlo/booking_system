@@ -34,7 +34,7 @@ class Customer extends Base
     }
 
     $created_by = $_SESSION['user']->id;
-    $id = $this->insert_get_id("insert into tbl_customers (email,created_by,company_id) values ('$email', '$created_by','$company')");
+    $id = $this->insert_get_id("insert into tbl_customers (email,created_by,company_id,customer_type_id) values ('$email', '$created_by','$company','$customer_type_id')");
     $this->query("insert into tbl_customers_info (id,first_name,middle_name,last_name,contact_no,gender_id, province,city,barangay, birth_date) 
           values('$id','$first_name','$middle_name','$last_name','$contact_no','$gender', '$province','$city','$barangay','$birth_date')");
     $result->status = true;
@@ -68,7 +68,7 @@ class Customer extends Base
       return $result;
     }
 
-    $this->query("update tbl_customers set email = '$email', company_id = '$company'  where id = $id");
+    $this->query("update tbl_customers set email = '$email', company_id = '$company',customer_type_id = '$customer_type_id'  where id = $id");
     $this->query("update tbl_customers_info set first_name = '$first_name', middle_name =  '$middle_name', last_name = '$last_name', birth_date = '$birth_date', gender_id = '$gender', province = '$province',city='$city',barangay = '$barangay', contact_no = '$contact_no'  where id = $id");
     $result->status = true;
     $result->reset = false;

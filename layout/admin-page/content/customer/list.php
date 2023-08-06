@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header"><i class="fa fa-users"></i> Manage Customer List</h1>
+    <h1 class="page-header"><i class="fa fa-users"></i> Customers</h1>
   </div>
 </div>
 <div class="row">

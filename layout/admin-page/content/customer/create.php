@@ -109,6 +109,15 @@
               </div>
             </div>
 
+            <div class="col-lg-3">
+              <div class="form-group">
+                <label><span style="color:red">*</span>Customer Type</label>
+                <br>
+                <input type="radio" name="customer_type_id" id="customer_type_id" value="1" checked> Individual
+                <input type="radio" name="customer_type_id" id="customer_type_id" value="2" style="margin-left:10rem"> Business
+              </div>
+            </div>
+
           </div>
 
         </div>

@@ -100,9 +100,15 @@
             <!-- <li><a href="#" name="admin_customer_list2" class="nav-link sidebar-btn"><i class="fa fa-users fa-fw"></i> Manage Customers List</a></li> -->
             <li><a href="." class=" nav-link sidebar-btn active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
             <li><a href="#" name="admin_bank_list" class="nav-link sidebar-btn"><i class="fa fa-bank fa-fw"></i> Banking</a></li>
-            <li><a href="#" name="admin_customer_list" class="nav-link sidebar-btn"><i class="fa fa-users fa-fw"></i> Customers List</a></li>
-            <li><a href="#" name="admin_account_list" class="nav-link sidebar-btn"><i class="fa fa-users fa-fw"></i> Chart of Accounts</a></li>
-            <li><a href="#" name="admin_tax_list" class="nav-link sidebar-btn"><i class="fa fa-percent fa-fw"></i> Tax List</a></li>
+            <li>
+              <a href="#" class="nav-link"><i class="fa fa-shopping-cart fa-fw"></i> Sales<span class="fa arrow"></span></a>
+              <ul class="nav nav-second-level">
+                <li><a href="#" name="admin_customer_list" class="nav-link sidebar-btn"><i class="fa fa-users fa-fw"></i> Customers</a></li>
+                <li><a href="#" name="admin_invoice_list" class="nav-link sidebar-btn"><i class="fa fa-address-card-o fa-fw"></i> Invoice</a></li>
+                <li><a href="#" name="admin_payment_list" class="nav-link sidebar-btn"><i class="fa fa-money fa-fw"></i> Payment Received</a></li>
+              </ul>
+              <!-- /.nav-second-level -->
+            </li>
             <li>
               <a href="#" class="nav-link"><i class="fa fa-files-o fa-fw"></i> Generate Reports<span class="fa arrow"></span></a>
               <ul class="nav nav-second-level">
@@ -111,6 +117,16 @@
                 <li><a href="#" name="sales_tax_summary" class="nav-link sidebar-btn"><i class="fa fa-file fa-fw"></i> Sales Tax Summary</a></li>
                 <li><a href="#" name="payment_summary" class="nav-link sidebar-btn"><i class="fa fa-file fa-fw"></i> Payment Summary</a></li>
                 <li><a href="#" name="income_and_expenses_summary" class="nav-link sidebar-btn"><i class="fa fa-file fa-fw"></i> Income and Expenses Summary</a></li>
+              </ul>
+              <!-- /.nav-second-level -->
+            </li>
+            <li><a href="#" name="admin_account_list" class="nav-link sidebar-btn"><i class="fa fa-users fa-fw"></i> Chart of Accounts</a></li>
+            <li>
+              <a href="#" class="nav-link"><i class="fa fa-cog fa-fw"></i> Configuration<span class="fa arrow"></span></a>
+              <ul class="nav nav-second-level">
+                <li><a href="#" name="admin_tax_list" class="nav-link sidebar-btn"><i class="fa fa-percent fa-fw"></i> Tax</a></li>
+                <li><a href="#" name="admin_sales_person_list" class="nav-link sidebar-btn"><i class="fa fa-users fa-fw"></i> Sales Person</a></li>
+                <li><a href="#" name="admin_sales_person_list" class="nav-link sidebar-btn"><i class="fa fa-building-o fa-fw"></i> Company</a></li>
               </ul>
               <!-- /.nav-second-level -->
             </li>

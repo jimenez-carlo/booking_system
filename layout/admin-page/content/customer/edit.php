@@ -109,6 +109,14 @@
                 <input class="form-control" type="email" name="email" id="email" placeholder="Email" value="<?= $info->email ?>">
               </div>
             </div>
+            <div class="col-lg-3">
+              <div class="form-group">
+                <label><span style="color:red">*</span>Customer Type</label>
+                <br>
+                <input type="radio" name="customer_type_id" id="customer_type_id" value="1" <?= $info->customer_type_id == 1 ? "checked" : "" ?>> Individual
+                <input type="radio" name="customer_type_id" id="customer_type_id" value="2" <?= $info->customer_type_id == 2 ? "checked" : "" ?> style="margin-left:10rem" <?= $info->email ?>> Business
+              </div>
+            </div>
 
           </div>
 
@@ -250,7 +258,7 @@
       $('#customer_payments_history').DataTable({
         dom: '<"custom_bar"<"flex"lB>f>rtip',
         "aaSorting": [],
-buttons: [{
+        buttons: [{
           extend: 'copy',
           text: 'Copy <i class="fa fa-clipboard" aria-hidden="true"></i>',
           className: 'btn btn-sm btn-primary'
@@ -273,7 +281,7 @@ buttons: [{
       $('#customer_disbursement_history').DataTable({
         dom: '<"custom_bar"<"flex"lB>f>rtip',
         "aaSorting": [],
-buttons: [{
+        buttons: [{
           extend: 'copy',
           text: 'Copy <i class="fa fa-clipboard" aria-hidden="true"></i>',
           className: 'btn btn-sm btn-primary'
@@ -296,7 +304,7 @@ buttons: [{
       $('#customer_invoice_history').DataTable({
         dom: '<"custom_bar"<"flex"lB>f>rtip',
         "aaSorting": [],
-buttons: [{
+        buttons: [{
           extend: 'copy',
           text: 'Copy <i class="fa fa-clipboard" aria-hidden="true"></i>',
           className: 'btn btn-sm btn-primary'

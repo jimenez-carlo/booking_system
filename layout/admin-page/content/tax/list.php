@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header"><i class="fa fa-percent"></i> Tax list</h1>
+    <h1 class="page-header"><i class="fa fa-table"></i> Tax</h1>
   </div>
 </div>
 <div class="row">
