@@ -60,10 +60,12 @@ if (in_array($page, $pages)) {
     case 'admin_account_list':
       $data['accounts'] = $request->get_list("SELECT x.id,x.parent_account_id,x.account_name,x.account_code,x.account_no,y.name as account_type,z.account_name as parent_name, x.is_deletable,x.is_deleted FROM tbl_account x inner join tbl_account_type y on (x.account_type_id = y.id and y.is_deleted = 0) left join tbl_account z on (z.id = x.parent_account_id and z.is_deleted = 0) where x.is_deleted = 0 order by x.created_date desc");
       break;
+    case 'admin_bank_create':
     case 'admin_account_create':
       $data['account_type'] = $request->get_list("SELECT x.*,y.name as parent_name,count(z.account_type_id) as child from tbl_account_type x inner join tbl_account_type_category y on (y.id = x.account_type_category_id and y.is_deleted = 0) left join tbl_account z on z.account_type_id = x.id where x.is_deleted = 0 group by x.id order by x.account_type_category_id,x.order_index");
       $data['currency'] = $request->get_list("select * from tbl_currency where is_deleted = 0");
       break;
+    case 'admin_bank_edit':
     case 'admin_account_edit':
       $data['account_type'] = $request->get_list("SELECT x.*,y.name as parent_name,count(z.account_type_id) as child from tbl_account_type x inner join tbl_account_type_category y on (y.id = x.account_type_category_id and y.is_deleted = 0) left join tbl_account z on z.account_type_id = x.id where x.is_deleted = 0 group by x.id order by x.account_type_category_id,x.order_index");
       $data['info'] = $request->get_one("SELECT * from tbl_account where id = $id");
@@ -79,9 +81,6 @@ if (in_array($page, $pages)) {
 
     case 'admin_bank_list':
       $data['banks'] = $request->get_list("SELECT x.id,x.parent_account_id,x.account_name,x.account_code,x.account_no,x.account_type_id,c.symbol,y.name as account_type,z.account_name as parent_name, x.is_deletable,x.is_deleted FROM tbl_account x inner join tbl_account_type y on (x.account_type_id = y.id and y.is_deleted = 0) left join tbl_account z on (z.id = x.parent_account_id and z.is_deleted = 0) inner join tbl_currency c on (c.id = x.currency_id and c.is_deleted = 0) where x.is_deleted = 0 and x.account_type_id in (3,4,9) order by x.created_date desc");
-      break;
-    case 'admin_bank_edit':
-      $data['info'] = $request->get_one("SELECT * from tbl_account where id = $id");
       break;
 
     case 'customer_register':

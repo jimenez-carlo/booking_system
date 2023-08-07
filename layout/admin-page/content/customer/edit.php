@@ -114,7 +114,7 @@
                 <label><span style="color:red">*</span>Customer Type</label>
                 <br>
                 <input type="radio" name="customer_type_id" id="customer_type_id" value="1" <?= $info->customer_type_id == 1 ? "checked" : "" ?>> Individual
-                <input type="radio" name="customer_type_id" id="customer_type_id" value="2" <?= $info->customer_type_id == 2 ? "checked" : "" ?> style="margin-left:10rem" <?= $info->email ?>> Business
+                <input type="radio" name="customer_type_id" id="customer_type_id" value="2" <?= $info->customer_type_id == 2 ? "checked" : "" ?> style="margin-left:10rem"> Business
               </div>
             </div>
 

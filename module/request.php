@@ -42,6 +42,7 @@ switch ($form) {
     $result = $disbursement->create();
     break;
     // Account
+  case 'create_bank':
   case 'create_account':
     $result = $account_instance->create();
     break;

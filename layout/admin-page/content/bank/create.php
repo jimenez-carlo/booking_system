@@ -1,48 +1,36 @@
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header"><i class="fa fa-user-plus"></i> Create Account</h1>
+    <h1 class="page-header"><i class="fa fa-bank"></i> Create Bank/Credit Card</h1>
   </div>
 </div>
 <div class="row">
-  <form action="" method="post" name="create_account" refresh="admin_account_create">
+  <form action="" method="post" name="create_bank" refresh="admin_bank_create">
     <div class="col-lg-12">
       <div class="result"></div>
       <div class="panel panel-default">
         <div class="panel-heading">
           <!-- Customer Creation Form -->
-          <button type="submit" class="btn btn-sm btn-primary" name="admin_account_list"> Save <i class="fa fa-check"></i></button>
-          <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_account_list"><i class="fa fa-backward" aria-hidden="true"></i> Back </button>
+          <button type="submit" class="btn btn-sm btn-primary"> Save <i class="fa fa-check"></i></button>
+          <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_bank_list"><i class="fa fa-backward" aria-hidden="true"></i> Back </button>
         </div>
         <!-- /.panel-heading -->
         <div class="panel-body">
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
-                <label><span style="color:red">*</span>Account Name</label>
-                <input class="form-control" type="text" name="account_name" id="account_name" placeholder="Account Name">
+                <label><span style="color:red">*</span>Select Account Type</label>
+                <br>
+                <input type="radio" name="account_type" id="account_type" value="4" checked> Bank
+                <input type="radio" name="account_type" id="account_type" value="9" style="margin-left:10rem"> Credit Card
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label><span style="color:red">*</span>Account Type</label>
-                <select class="form-control select2" name="account_type" id="account_type">
-                  <?php $group = null ?>
-                  <?php foreach ($account_type as $res) { ?>
-                    <?php if (empty($group)) {
-                      $group = $res['parent_name'];
-                      echo '<optgroup label="' . $res['parent_name'] . '">';
-                    } ?>
-                    <?= ($group != $res['parent_name']) ? '<optgroup label="' . $res['parent_name'] . '">' : "" ?>
-                    <option value="<?= $res['id'] ?>" data-child="<?= $res['child'] ?>"><?= $res['name'] ?></option>
-                    <?php $group = $res['parent_name']; ?>
-                    <?= ($group != $res['parent_name']) ? "</optgroup>" : "" ?>
-                  <?php } ?>
-                </select>
+                <label><span style="color:red">*</span>Account Name</label>
+                <input class="form-control" type="text" name="account_name" id="account_name" placeholder="Account Name">
               </div>
             </div>
-
           </div>
-
 
           <div class="row">
             <div class="col-lg-3">
@@ -58,32 +46,7 @@
               </div>
             </div>
           </div>
-          <div class="row" id="subaccount">
-            <div class="col-lg-3">
-              <div class="form-group">
-                <label><span style="color:red"></span>Make this a sub-account</label>
-                <input type="checkbox" aria-label="..." class="" name="is_sub_account" id="is_sub_account">
-              </div>
-            </div>
-            <div class="col-lg-3" id="paccount">
-              <div class="form-group">
-                <label><span style="color:red">*</span>Parent Account</label>
-                <select class="form-control select2" name="parent_account_type" id="parent_account_type">
-                  <?php $group = null ?>
-                  <?php foreach ($account_type as $res) { ?>
-                    <?php if (empty($group)) {
-                      $group = $res['parent_name'];
-                      echo '<optgroup label="' . $res['parent_name'] . '">';
-                    } ?>
-                    <?= ($group != $res['parent_name']) ? '<optgroup label="' . $res['parent_name'] . '">' : "" ?>
-                    <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
-                    <?php $group = $res['parent_name']; ?>
-                    <?= ($group != $res['parent_name']) ? "</optgroup>" : "" ?>
-                  <?php } ?>
-                </select>
-              </div>
-            </div>
-          </div>
+
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
@@ -112,25 +75,3 @@
   </form>
   <!-- /.col-lg-12 -->
 </div>
-
-<script>
-  $(document).ready(function() {
-    $('select[name="account_type"]').off('change');
-
-    $('select[name="account_type"]').on('change', function() {
-      toggleSubAccountSection();
-      parent_account();
-    });
-
-    $('#is_sub_account').on('change', function() {
-      toggleSubAccountCheckbox();
-    });
-
-
-
-    // $('.select2').select2();
-    parent_account();
-    toggleSubAccountSection();
-    toggleSubAccountCheckbox();
-  });
-</script>

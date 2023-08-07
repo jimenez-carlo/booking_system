@@ -8,14 +8,20 @@ $type = [
 <div class="row">
   <div class="col-lg-12">
     <h1 class="page-header"><i class="fa fa-bank"></i> Banking</h1>
+    <!-- <h5>
+      <button class="btn btn-default" style="width: fit-content;display:inline-block">Cash in Hand <b>80.00</b></button>
+      <button class="btn btn-default" style="width: fit-content;display:inline-block">Bank <b>80.00</b></button>
+      <button class="btn btn-default" style="width: fit-content;display:inline-block">Credit Card <b>80.00</b></button>
+    </h5> -->
   </div>
+
 </div>
 <div class="row">
   <div class="col-lg-12">
     <div class="result"></div>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_account_create"> Add Credit Card/Bank <i class="fa fa-plus"></i> </button>
+        <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_bank_create"> Add Credit Card/Bank <i class="fa fa-plus"></i> </button>
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
@@ -40,8 +46,8 @@ $type = [
                   <td><?= ucwords(strtolower($res['account_type'])) ?></td>
                   <td class="text-right"><?= $res['symbol'] . ' ' . number_format(0, 2) ?></td>
                   <td>
-                    <form method="post" name="delete_account" refresh="admin_account_list" confirm>
-                      <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_account_edit" value="<?= $res['id'] ?>"> Edit <i class="fa fa-edit"></i> </button>
+                    <form method="post" name="delete_account" refresh="admin_bank_list" confirm>
+                      <button type="button" class="btn btn-sm btn-primary btn-edit" name="admin_bank_edit" value="<?= $res['id'] ?>"> Edit <i class="fa fa-edit"></i> </button>
                       <?php if ($res['is_deletable']) { ?>
                         <button type="submit" class="btn btn-sm btn-primary" name="id" value="<?= $res['id'] ?>"> Delete <i class="fa fa-trash"></i> </button>
                       <?php } else { ?>

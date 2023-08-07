@@ -1,0 +1,66 @@
+Total Receivables (1-15 16-30 31-45 above 45days)
+Current - Overdue
+php 0.00   PHP0.00
+
+Toral Payables
+Current - Overdue
+php 0.00   PHP0.00
+
+graph
+Cash As Jan PHP0.00
+Incoming(green)
+Outgoing(red)
+Cash As Dec PHP0.00
+
+bar
+Cash As Jan PHP0.00
+Incoming(green)
+Outgoing(red)
+Cash As Dec PHP0.00
+
+Bank and Credit Cards
+name - balance
+
+Pie chart top expenses
+percentage
+
+
+Money Out
+ Expense(Cost of Goods Sold,Expense, Other Current Liability,Fixed Asset, Current Asset) !Customer
+ Vendor Advance (Vendor)
+ Vendor Payment (Vendor)
+ Transfer To Another Account (Other Current Asset, Cash, Bank, Credit, Card, Equity)
+ Sales Return (Income, !Customer)
+ Card Payment (Credit Card)
+ Owner Drawings(Equity)
+ Credit Note Refund (Customer)
+ Payment Refund  (Customer)
+Money In
+ Customer Advance (Customer)
+ Customer Payment (Customer)
+ Sales Without Invoices (Income)
+ Transfer To Another Account (Other Current Asset, Cash, Bank, Credit, Card, Equity)
+ Interest Income
+ Other Income (Income)
+ Expense Refund (Cost of Goods Sold,Expense, Other Current Liability,Fixed Asset, Current Asset)
+ Deposit From Other Accounts (Other Current Asset, Cash, Bank, Credit, Card, Equity) (!Customer)
+ Owner's Contribution (Equity)
+ Vendor Credit Refund (Vendor)
+ Vendor Paymend Refund (Vendor)
+
+Account
+VendorId
+Tax
+
+CustomerId
+Ammount/Ammount Received
+Date
+Payment ID(auto gen)
+Reference(optional)
+Description
+ Received/Paid via (Mode of payment)
+  -Bank Remmitance
+  -Cash
+  -Bank Transfer
+  -Check
+  -Credit Card
