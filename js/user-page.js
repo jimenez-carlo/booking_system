@@ -37,7 +37,6 @@ $(document).on("click", '.a-view', function () {
 
 
 $(document).on("click", '.btn-edit, .btn-view', function () {
-  
   var page = $(this).attr('name');
   var id = $(this).attr('value');
   
